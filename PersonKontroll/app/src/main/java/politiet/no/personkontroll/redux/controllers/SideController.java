@@ -26,15 +26,19 @@ public class SideController implements Store.Middleware<Action, State>  {
     public void dispatch(Store<Action, State> store, Action action, Store.NextDispatcher<Action> nextDispatcher) {
         if (action.type instanceof Actions.Side) {
             Actions.Side nyside = (Actions.Side) action.type;
+            Intent intent;
             switch (nyside)
             {
                 case FORSIDE:
-                    mContext.startActivity(new Intent(mContext, MainActivity.class));
+                    intent = new Intent(mContext, MainActivity.class);
                     break;
                 default:
-                    mContext.startActivity(new Intent(mContext, SubActivity.class));
+                    intent = new Intent(mContext,SubActivity.class);
                     break;
             }
+
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            mContext.startActivity(intent);
         }
 
         nextDispatcher.dispatch(action);
