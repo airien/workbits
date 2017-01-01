@@ -26,8 +26,8 @@ import java.util.Map;
 
 import politiet.no.personkontroll.data.source.bruker.BrukerDataSource;
 import politiet.no.personkontroll.data.source.kontroll.KontrollDataSource;
-import politiet.no.personkontroll.mvp.forside.domain.model.Kontroll;
-import politiet.no.personkontroll.mvp.header.domain.model.Bruker;
+import politiet.no.personkontroll.daggerhelpers.forside.domain.model.Kontroll;
+import politiet.no.personkontroll.daggerhelpers.header.domain.model.Bruker;
 
 /**
  * Implementation of a remote data source with static access to the data for easy testing.
