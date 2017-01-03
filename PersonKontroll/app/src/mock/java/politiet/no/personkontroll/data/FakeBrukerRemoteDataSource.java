@@ -23,8 +23,8 @@ import com.google.common.collect.Lists;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import politiet.no.personkontroll.data.models.Bruker;
 import politiet.no.personkontroll.data.source.bruker.BrukerDataSource;
-import politiet.no.personkontroll.daggerhelpers.header.domain.model.Bruker;
 
 /**
  * Implementation of a remote data source with static access to the data for easy testing.

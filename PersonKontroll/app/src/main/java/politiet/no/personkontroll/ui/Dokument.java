@@ -2,6 +2,9 @@ package politiet.no.personkontroll.ui;
 
 import android.widget.LinearLayout;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import politiet.no.personkontroll.R;
 import politiet.no.personkontroll.Actions;
 import politiet.no.personkontroll.PersonKontrollApp;
@@ -42,19 +45,56 @@ public class Dokument {
 
     private static void hoveddel() {
 
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        State state = PersonKontrollApp.getState();
+
         linearLayout(() -> {
-            size(FILL, WRAP);
-            gravity(CENTER_VERTICAL);
+            size(FILL, FILL);
+            orientation(LinearLayout.VERTICAL);
 
             textView(() -> {
-                size(WRAP, WRAP);
+                size(FILL, WRAP);
                 weight(1f);
                 textSize(dip(20));
-                DSL.text("Dette er en underside");
+                DSL.text("Primary Id: "+state.dokument().primaryId());
             });
-
+            textView(() -> {
+                size(FILL, WRAP);
+                weight(1f);
+                textSize(dip(20));
+                DSL.text("Secondary Id: "+state.dokument().secondaryId());
+            });
+            textView(() -> {
+                size(FILL, WRAP);
+                weight(1f);
+                textSize(dip(20));
+                DSL.text("Document nr: "+state.dokument().documentNumber());
+            });
+            textView(() -> {
+                size(FILL, WRAP);
+                weight(1f);
+                textSize(dip(20));
+                DSL.text("Birth: "+dateFormat.format(state.dokument().dateOfBirth()));
+            });
+            textView(() -> {
+                size(FILL, WRAP);
+                weight(1f);
+                textSize(dip(20));
+                DSL.text("Expiry: "+dateFormat.format(state.dokument().dateOfExpiry()));
+            });            textView(() -> {
+                size(FILL, WRAP);
+                weight(1f);
+                textSize(dip(20));
+                DSL.text("OCR: "+state.dokument().raw());
+            });
             button(() -> {
-                DSL.text("Tilbake!");
+                text("Les chip");
+                onClick(v->{
+                    PersonKontrollApp.dispatch(new Action<>(Actions.Side.LESCHIP));
+                });
+            });
+            button(() -> {
+                text("Tilbake!");
 
                 onClick(v->{
                     PersonKontrollApp.dispatch(new Action<>(Actions.Side.FORSIDE));

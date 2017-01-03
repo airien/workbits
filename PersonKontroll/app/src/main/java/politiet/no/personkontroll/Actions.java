@@ -5,9 +5,9 @@ package politiet.no.personkontroll;
  */
 
 public final class Actions {
-    public enum Side {DOKUMENT, PERSONFOTO, FIGERAVTRYKK, NUMMERSKILT, SOK, FORSIDE, HISTORIKK}
+    public enum Side {DOKUMENT, PERSONFOTO, FIGERAVTRYKK, NUMMERSKILT, SOK, FORSIDE, LESCHIP, HISTORIKK}
     public enum Person {HENT}
-    public enum Dokument {HENT}
+    public enum Dokument {MRZLEST, HENT, CLEARDOCUMENT, CHIPSTATUSUPDATE, CHIPLEST,UPDATECOM, UPDATESOD, UPDATEDG2, UPDATEDG1};
     public enum Varsel {HENT}
     public enum Bruker{HENT}
 }

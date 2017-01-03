@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/LibBlinkID/LibBlinkID.iml" filepath="$PROJECT_DIR$/LibBlinkID/LibBlinkID.iml" />
       <module fileurl="file://$PROJECT_DIR$/PersonKontroll.iml" filepath="$PROJECT_DIR$/PersonKontroll.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chipwrapper-release/chipwrapper-release.iml" filepath="$PROJECT_DIR$/chipwrapper-release/chipwrapper-release.iml" />
     </modules>
   </component>
 </project>

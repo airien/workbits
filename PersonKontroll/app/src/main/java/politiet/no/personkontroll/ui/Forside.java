@@ -78,7 +78,6 @@ public class Forside {
                 onClick(v->{
 
                 });
-
             });
         });
     }

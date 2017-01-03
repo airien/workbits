@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 
 import politiet.no.personkontroll.Actions;
+import politiet.no.personkontroll.activities.DokumentActivity;
+import politiet.no.personkontroll.activities.LesChipActivity;
 import politiet.no.personkontroll.activities.MainActivity;
 import politiet.no.personkontroll.activities.SubActivity;
 import politiet.no.personkontroll.states.State;
@@ -31,6 +33,13 @@ public class SideController implements Store.Middleware<Action, State>  {
             {
                 case FORSIDE:
                     intent = new Intent(mContext, MainActivity.class);
+                    break;
+                case DOKUMENT:
+                    intent = new Intent(mContext, DokumentActivity.class);
+                    break;
+                case LESCHIP:
+
+                    intent = new Intent(mContext, LesChipActivity.class);
                     break;
                 default:
                     intent = new Intent(mContext,SubActivity.class);

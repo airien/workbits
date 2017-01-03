@@ -15,3 +15,7 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-keep class com.microblink.** { *; }
+-keepclassmembers class com.microblink.** { *; }
+-dontwarn android.hardware.**
+-dontwarn android.support.v4.**
