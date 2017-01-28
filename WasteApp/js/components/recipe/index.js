@@ -8,8 +8,9 @@ var menuItems = require('../../data/sidebar.json');
 import styles from './styles';
 
 import { openDrawer } from '../../actions/drawer';
-const logo = require('../../../img/logo.png');
-const cardImage = require('../../../img/Milk-Tart2.jpg');
+const logo = require('../../../img/cowlogo.png');
+
+   const cardImage = require('../../../img/Milk-Tart2.jpg');
 
 const {
   replaceAt,
@@ -27,26 +28,25 @@ class Recipe extends Component {
   }
 
     render() {
-  console.log("recipes"+JSON.stringify(recipes));
 	var recipeList = [];
 
 	for(let i = 0; i < recipes.length; i++){
     var textList = [];
     for(let y = 0; y < recipes[i].texts.length; y++)
     {
-      textList.push(<Text>{recipes[i].texts[y]}</Text>)
+      textList.push(<Text key="{i}_{y}">{recipes[i].texts[y]}</Text>)
     }
+   var imageSrc = recipes[i].image;
     var recipe = recipes[i];
 		recipeList.push(
-          <Card style={[styles.mb, { flex: 0 }]}>
+          <Card style={[styles.mb, { flex: 0 }]} key={'card_'+i}>
             <CardItem>
-              <Thumbnail source={logo} />
               <Text>{recipe.name}</Text>
             </CardItem>
             <CardItem cardBody>
-              <Image style={{ resizeMode: 'cover', width: null }} source={cardImage} />
+              <Image style={{ resizeMode: 'cover', width: null, height:200 }} source={ { uri: imageSrc}} />
               {
-                textList
+                textList 
               }
               <Button transparent style={{ marginLeft: -7 }} textStyle={{ color: '#87838B' }}>
                 <Icon name="logo-github" />

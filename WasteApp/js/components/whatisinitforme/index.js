@@ -7,7 +7,7 @@ import { openDrawer } from '../../actions/drawer';
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
 
-class WhatsInItForMe extends Component {
+class WhatIsInItForMe extends Component {
 
   static propTypes = {
     openDrawer: React.PropTypes.func,
@@ -112,4 +112,4 @@ const mapStateToProps = state => ({
   navigation: state.cardNavigation,
 });
 
-export default connect(mapStateToProps, bindAction)(WhatsInItForMe);
+export default connect(mapStateToProps, bindAction)(WhatIsInItForMe);

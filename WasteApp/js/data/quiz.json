@@ -1,0 +1,31 @@
+[{
+    "question" : "Hva er svaret på spørsmål1?",
+    "alternatives" : [
+        {"key":0,"answer":"svar1"},
+        {"key":1,"answer":"svar2"},
+        {"key":2,"answer":"svar3"}
+        ],
+    "selected":null,
+    "answer" : 0
+},
+{
+    "question" : "Hvilken farge er blå?",
+    "alternatives" : [
+        {"key":0,"answer":"rød"},
+        {"key":1,"answer":"gul"},
+        {"key":2,"answer":"blå"}
+        ],
+    "selected":null,
+    "answer" : 2
+},
+{
+    "question" : "Hvilken farge er solen?",
+    "alternatives" : [
+        {"key":0,"answer":"rød"},
+        {"key":1,"answer":"gul"},
+        {"key":2,"answer":"blå"},
+        {"key":2,"answer":"lilla"}  
+        ],
+    "selected":null,
+    "answer" : 1
+}]

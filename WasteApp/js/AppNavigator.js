@@ -11,7 +11,7 @@ import Home from './components/home/';
 import Recipe from './components/recipe/';
 import NewItem from './components/newitem/';
 import FoodWaste from './components/foodwaste/';
-import WhatsInItForMe from './components/whatsinitforme/';
+import WhatIsInItForMe from './components/whatisinitforme/';
 import Quiz from './components/quiz/';
 
 import SplashPage from './components/splashscreen/';
@@ -88,8 +88,8 @@ class AppNavigator extends Component {
         return <NewItem />;
       case 'foodwaste':
         return <FoodWaste />;
-      case 'whatsinitforme':
-        return <WhatsInItForMe />;
+      case 'whatisinitforme':
+        return <WhatIsInItForMe />;
       case 'quiz':
         return <Quiz />;
 
