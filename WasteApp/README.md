@@ -1,6 +1,6 @@
 # App to minimize food waste for the norwegian university NMBU
 
-![Cowzer](img/cowzer.jpg)
+![Cowzer](https://github.com/airien/workbits/blob/master/WasteApp/img/cowzer.jpg)
 
 
 ###based on Nativebase kitchensink
