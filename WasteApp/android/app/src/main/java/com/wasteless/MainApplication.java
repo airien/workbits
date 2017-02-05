@@ -5,8 +5,8 @@ import android.util.Log;
 
 import com.facebook.react.ReactApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
-import com.reactlibrary.RNTesseractOcrPackage;
-import com.lwansbrough.RCTCamera.RCTCameraPackage;
+import com.joshblour.reactnativepermissions.ReactNativePermissionsPackage;
+import com.anyline.reactnative.AnylinePackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -19,9 +19,6 @@ import java.util.List;
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-
-
-
     @Override
     protected boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
@@ -32,8 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new VectorIconsPackage(),
-            new RNTesseractOcrPackage(),
-            new RCTCameraPackage()
+         new AnylinePackage()
       );
     }
   };

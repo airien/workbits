@@ -16,8 +16,9 @@ module.exports = StyleSheet.create({
   },
   mb15: {
     marginBottom: 15,
-    backgroundColor: 'blue',
-    height:70,
+    backgroundColor: '#085dad',
+    height:50,
+     alignSelf: 'stretch',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'

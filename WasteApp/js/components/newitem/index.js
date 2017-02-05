@@ -1,131 +1,105 @@
-/**
- * ./index.js
- * @author  Jonathan Palma <tanpalma04@gmail.com> 
- */
-'use strict';
-import { connect } from 'react-redux';
-import { Container, Header, Title, Content, Icon, Picker } from 'native-base';
-import { openDrawer } from '../../actions/drawer';
-//import styles from './styles';
 import React, { Component } from 'react';
-import RNTesseractOcr from 'react-native-tesseract-ocr';
+import { connect } from 'react-redux';
+import { actions } from 'react-native-navigation-redux-helpers';
+import { Container, Header, Title, Content, Button, Icon , View, Text} from 'native-base';
 
-import {
-  AppRegistry,
-  Dimensions,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} from 'react-native';
-import Camera from 'react-native-camera';
+import { openDrawer } from '../../actions/drawer';
+import styles from './styles';
 
-class NewItem extends Component {
-  
-  constructor(props, context){
-    super(props, context);
-    this.state = { ocrResult: null , update: null}; 
-}
+var Datastore = require('react-native-local-mongodb')
+  , db = new Datastore({ filename: 'asyncStorageKey', autoload: true });
 
-  
+var menuItems = require('../../data/sidebar.json');
+const {
+  replaceAt,
+} = actions;
 
-  static propTypes = {
-    openDrawer: React.PropTypes.func,
+class NHList extends Component {
+   constructor(props){
+    super(props);
+    this.state = {
+        dairy:[]
+    };
+    this.initDb();
   }
-
-
-  replaceAt(route) {
-    this.props.replaceAt('newitem', { key: route }, this.props.navigation.key);
+ componentWillMount() {
+    this.initDb();
   }
-
-  takePicture() {
-    this.camera.capture()
-      .then((data) => {
-        console.log(data)
-        this.setState({ update: JSON.stringify(data) });
-      RNTesseractOcr.startOcr(data.path, "LANG_SWEDISH")
-  .then((result) => {
-            this.setState({ ocrResult: result });
-            console.log("OCR Result: ", result);
-  })
-  .catch((err) => {
-
-    this.setState({ update: "OCR Error: " + err });
-    console.log("OCR Error: ", err);
-  })
-  .done();    
-    })
-      .catch(err => {
-    
-      this.setState({ update: "OCR Error: " + err });
-      console.error(err)
+  initDb() {
+    var self = this;
+    // Find all documents in the collection
+    db.find({}).sort({ id: 1 }).exec(function (err, docs) {
+        self.setState({
+          dairy:docs,
+          err:err
+        });
+      self.render();
     });
   }
+  clearDb() {
+    var self = this;
+    db.remove({}, { multi: true }, function (err, numRemoved) { self.setState({
+        dairy:[]   
+      });
+     alert("all gone! "+numRemoved);
+    });
+  }
+  static propTypes = {
+    openDrawer: React.PropTypes.func,
+    replaceAt: React.PropTypes.func,
+    navigation: React.PropTypes.shape({
+      key: React.PropTypes.string,
+    }),
+  }
+ listOfItems(ingr) {
 
-
+    return ingr.map((data, index) => {
+      return (
+      <View  key={'view_'+index+data.id}>
+       <Text  key={index} >{data.id}. {data.date} - {data.type}</Text>
+      </View>
+      )
+    })}
+  replaceAt(route) {
+    this.props.replaceAt('dairy', { key: route }, this.props.navigation.key);
+  }
 
   render() {
-    return(
-      <View style={styles.container}>
-   
+    return (
+      <Container style={styles.container}>
+        <Header>
+          <Title>{menuItems.dairy}</Title>
 
-        <Camera
-          ref={(cam) => {
-            this.camera = cam;
-          }}
-          style={styles.preview}
-          aspect={Camera.constants.Aspect.fill}>
-          <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
-        </Camera>
+          <Button transparent onPress={this.props.openDrawer}>
+            <Icon name="ios-menu" />
+          </Button>
+        </Header>
 
-        <Text>OCR Result: {this.state.ocrResult}</Text>
+        <Content padder>
 
 
-        <Text>Status: {this.state.update}</Text>
+      <View>
+      
+     {this.listOfItems(this.state.dairy)}
       </View>
+      
+    <Text>  {this.state.err}</Text>
+          <Button block style={styles.mb} onPress={() => this.replaceAt('newitem')}>{menuItems.newitem}</Button>
+
+          <Button block style={styles.mb} onPress={() => this.clearDb()}>Clear</Button>
+
+
+          
+        </Content>
+      </Container>
     );
   }
 }
 
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  imgContainer: {
-    borderColor: '#9B9B9B',
-    borderWidth: 1 ,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  img: {
-    borderRadius: 75,
-    width: 150,
-    height: 150
-  },
-    preview: {
-    flex: 2,
- //   justifyContent: 'flex-end',
-    alignItems: 'center',
-    height: 150,
-    width: Dimensions.get('window').width -50,
-    padding: 50
-  },
-  capture: {
-    flex: 0,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    color: '#000',
-    padding: 10,
-    margin: 40
-  }
-});
-
 function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
+    replaceAt: (routeKey, route, key) => dispatch(replaceAt(routeKey, route, key)),
   };
 }
 
@@ -133,5 +107,5 @@ const mapStateToProps = state => ({
   navigation: state.cardNavigation,
 });
 
-export default connect(mapStateToProps, bindAction)(NewItem);
+export default connect(mapStateToProps, bindAction)(NHList);
 

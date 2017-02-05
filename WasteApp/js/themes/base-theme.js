@@ -73,7 +73,7 @@ export default {
 
 
   // Check Box
-  checkboxBgColor: '#039BE5',
+  checkboxBgColor: '#31c3e7',
   checkboxSize: 23,
   checkboxTickColor: '#fff',
 
@@ -109,11 +109,11 @@ export default {
   // FooterTab
   tabBarTextColor: (Platform.OS === 'ios') ? '#6b6b6b' : '#b3c7f9',
   tabBarActiveTextColor: (Platform.OS === 'ios') ? '#007aff' : '#fff',
-  tabActiveBgColor: (Platform.OS === 'ios') ? '#e4f0fe' : undefined,
+  tabActiveBgColor: (Platform.OS === 'ios') ? '#085dad' : undefined,
 
   // Header
   iosToolbarBtnColor: '#007aff',
-  toolbarDefaultBg: (Platform.OS === 'ios') ? '#F8F8F8' : '#4179F7',
+  toolbarDefaultBg: (Platform.OS === 'ios') ? '#F8F8F8' : '#8cc739',
   toolbarHeight: (Platform.OS === 'ios') ? 64 : 56,
   toolbarIconSize: (Platform.OS === 'ios') ? 20 : 22,
   toolbarInputColor: '#CECDD2',
@@ -171,7 +171,7 @@ export default {
 
 
   // Progress Bar
-  defaultProgressColor: '#E4202D',
+  defaultProgressColor: '#31c3e7',
   inverseProgressColor: '#1A191B',
 
 

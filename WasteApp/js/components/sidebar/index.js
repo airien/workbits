@@ -40,40 +40,40 @@ class SideBar extends Component {
         <List>
           <ListItem button iconLeft onPress={() => this.navigateTo('recipe')} >
             <View style={styles.listItemContainer}>
-              <View style={[styles.iconContainer, { backgroundColor: '#0209D8', paddingLeft: 14 }]}>
-                <Icon name="ios-phone-portrait-outline" style={styles.sidebarIcon} />
+              <View style={[styles.iconContainer, { backgroundColor: '#21bede', paddingLeft: 11 }]}>
+                <Icon name="ios-cart-outline" style={styles.sidebarIcon} />
               </View>
               <Text style={styles.text}>{menuItems.recipe}</Text>
             </View>
           </ListItem>
-          <ListItem button iconLeft onPress={() => this.navigateTo('newitem')}>
+          <ListItem button iconLeft onPress={() => this.navigateTo('dairy')}>
             <View style={styles.listItemContainer}>
-              <View style={[styles.iconContainer, { backgroundColor: '#4DCAE0' }]}>
-                <Icon name="ios-notifications-outline" style={styles.sidebarIcon} />
+              <View style={[styles.iconContainer, { backgroundColor: '#085dad' }]}>
+                <Icon name="ios-stopwatch" style={styles.sidebarIcon} />
               </View>
-              <Text style={styles.text}>{menuItems.newitem}</Text>
+              <Text style={styles.text}>{menuItems.dairy}</Text>
             </View>
           </ListItem>
           <ListItem button iconLeft onPress={() => this.navigateTo('foodwaste')} >
             <View style={styles.listItemContainer}>
-              <View style={[styles.iconContainer, { backgroundColor: '#5cb85c', paddingLeft: 10 }]}>
-                <Icon name="md-radio-button-off" style={styles.sidebarIcon} />
+              <View style={[styles.iconContainer, { backgroundColor: '#8cc739', paddingLeft: 14 }]}>
+                <Icon name="ios-trash" style={styles.sidebarIcon} />
               </View>
               <Text style={styles.text}>{menuItems.foodwaste}</Text>
             </View>
           </ListItem>
               <ListItem button iconLeft onPress={() => this.navigateTo('whatisinitforme')} >
             <View style={styles.listItemContainer}>
-              <View style={[styles.iconContainer, { backgroundColor: '#877C00' }]}>
-                <Icon name="md-radio-button-on" style={styles.sidebarIcon} />
+              <View style={[styles.iconContainer, { backgroundColor: '#31c3e7' }]}>
+                <Icon name="ios-body" style={styles.sidebarIcon} />
               </View>
               <Text style={styles.text}>{menuItems.whatisinitforme}</Text>
             </View>
           </ListItem>
           <ListItem button iconLeft onPress={() => this.navigateTo('quiz')} >
             <View style={styles.listItemContainer}>
-              <View style={[styles.iconContainer, { backgroundColor: '#877CA6' }]}>
-                <Icon name="ios-keypad" style={styles.sidebarIcon} />
+              <View style={[styles.iconContainer, { backgroundColor: '#adb6b5' }]}>
+                <Icon name="ios-medical-outline" style={styles.sidebarIcon} />
               </View>
               <Text style={styles.text}>{menuItems.quiz}</Text>
             </View>

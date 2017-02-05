@@ -1,87 +1,84 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Thumbnail } from 'native-base';
-var recipes = require('../../data/recipe.json');
+import { Container, Header, Title, Content, Button, Icon, Text } from 'native-base';
+var recipeText = require('../../data/recipetext.json');
 var menuItems = require('../../data/sidebar.json');
 import styles from './styles';
 
+import myTheme from '../../themes/base-theme';
 import { openDrawer } from '../../actions/drawer';
-const logo = require('../../../img/cowlogo.png');
-
-   const cardImage = require('../../../img/Milk-Tart2.jpg');
 
 const {
   replaceAt,
 } = actions;
 
-
 class Recipe extends Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      recipe: 0
+    };
+  }
   static propTypes = {
     openDrawer: React.PropTypes.func,
+    replaceAt: React.PropTypes.func,
+    navigation: React.PropTypes.shape({
+      key: React.PropTypes.string,
+    }),
+  }
+
+  next()
+  {
+    var s;
+    if(this.state.recipe=== recipes.length-1)
+      s = 0;
+    else 
+      s = this.state.recipe+1;
+       this.setState({recipe :s});
+  }
+  previous(){
+    var s;
+     if(this.state.recipe === 0)
+      s= recipes.length-1;
+    else 
+      s = this.state.recipe-1;
+
+       this.setState({recipe :s});
   }
 
   replaceAt(route) {
     this.props.replaceAt('recipe', { key: route }, this.props.navigation.key);
   }
+  render() {
 
-    render() {
-	var recipeList = [];
 
-	for(let i = 0; i < recipes.length; i++){
-    var textList = [];
-    for(let y = 0; y < recipes[i].texts.length; y++)
-    {
-      textList.push(<Text key="{i}_{y}">{recipes[i].texts[y]}</Text>)
-    }
-   var imageSrc = recipes[i].image;
-    var recipe = recipes[i];
-		recipeList.push(
-          <Card style={[styles.mb, { flex: 0 }]} key={'card_'+i}>
-            <CardItem>
-              <Text>{recipe.name}</Text>
-            </CardItem>
-            <CardItem cardBody>
-              <Image style={{ resizeMode: 'cover', width: null, height:200 }} source={ { uri: imageSrc}} />
-              {
-                textList 
-              }
-              <Button transparent style={{ marginLeft: -7 }} textStyle={{ color: '#87838B' }}>
-                <Icon name="logo-github" />
-                <Text>{recipe.points} stars</Text>
-              </Button>
-            </CardItem>
-          </Card>
-		)
-	}
-
-    return (
-    <Container style={styles.container}>
-   
-       <Header>
+return (
+      <Container theme={myTheme} style={styles.container}>
+        <Header>
           <Title>{menuItems.recipe}</Title>
+
           <Button transparent onPress={this.props.openDrawer}>
             <Icon name="ios-menu" />
           </Button>
         </Header>
 
         <Content padder>
-        <Text>Recipes</Text>
-        {recipeList}
-
+        <Text style={{paddingBottom:20}}>{recipeText.text}</Text>
+          <Button block style={styles.melkeknapp} onPress={() => this.replaceAt('milk')}>Melk</Button>
+          <Button block style={styles.osteknapp} onPress={() => this.replaceAt('milk')}>Ost</Button>
+          <Button block style={styles.andreknapp} onPress={() => this.replaceAt('milk')}>Andre</Button>
         </Content>
       </Container>
- 
-    
-    );
+);
   }
 }
 
 function bindAction(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),
+    replaceAt: (routeKey, route, key) => dispatch(replaceAt(routeKey, route, key)),
   };
 }
 

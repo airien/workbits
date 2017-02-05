@@ -1,4 +1,4 @@
-[{
+{"questions":[{
     "question" : "Hva er svaret på spørsmål1?",
     "alternatives" : [
         {"key":0,"answer":"svar1"},
@@ -16,7 +16,8 @@
         {"key":2,"answer":"blå"}
         ],
     "selected":null,
-    "answer" : 2
+    "answer" : 2,
+    "image" : "milktart2"
 },
 {
     "question" : "Hvilken farge er solen?",
@@ -28,4 +29,6 @@
         ],
     "selected":null,
     "answer" : 1
-}]
+}],
+"texts":["viste du at du kunne putte egen random text her?", "Dette er en helt tilfeldig tekst som kommer opp", "Dette burde ikke være samme tekst som sist", "Jeg er helt sikker på at du er veldig overrasket!"]
+}

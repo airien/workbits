@@ -1,11 +1,16 @@
 
 import React, { Component } from 'react';
+import { Image,View, ListView } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Header, Title, Content, Text, H3, Button, Icon, Footer, FooterTab } from 'native-base';
 
+import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Thumbnail, DeckSwiper } from 'native-base';
 import { openDrawer } from '../../actions/drawer';
+
+var foodwaste = require('../../data/foodwaste.json');
+var menuItems = require('../../data/sidebar.json');
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
+var recipeText = require('../../data/recipetext.json');
 
 class FoodWaste extends Component {
 
@@ -16,87 +21,52 @@ class FoodWaste extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tab1: false,
-      tab2: false,
-      tab3: true,
-      tab4: false,
     };
   }
-
-  toggleTab1() {
-    this.setState({
-      tab1: true,
-      tab2: false,
-      tab3: false,
-      tab4: false,
-    });
+renderItems()
+{
+   return foodwaste.texts.map((item,index)=>
+  {        return  this.renderItem(item, index);
+  });
+}
+renderItem(item, index)
+{
+  if(item.type === "header")
+  {
+    return (<Text key={'text_'+index} style={{fontWeight:'bold', fontSize:18, marginTop:10, marginBottom:10}}>{item.value}</Text>);
   }
-
-  toggleTab2() {
-    this.setState({
-      tab1: false,
-      tab2: true,
-      tab3: false,
-      tab4: false,
-    });
+  else if(item.type==="icon")
+  {
+    return <Icon key={'text_'+index} name={item.value} style={{ width: 45, height: 45, justifyContent: 'center' }} />;
   }
-
-  toggleTab3() {
-    this.setState({
-      tab1: false,
-      tab2: false,
-      tab3: true,
-      tab4: false,
-    });
+   else if(item.type==="image")
+  {    
+    return (
+      <Image key={'image_'+index} style={{ resizeMode: 'cover', width: null, height:150 }} source={ { uri: item.value}} />
+    
+      );
   }
-
-  toggleTab4() {
-    this.setState({
-      tab1: false,
-      tab2: false,
-      tab3: false,
-      tab4: true,
-    });
+  else {
+    return (<Text key={'text_'+index} style={{ fontSize:12, marginTop:10, marginBottom:10}}>{item.value}</Text>);
   }
+}
 
   render() {
     return (
       <Container theme={myTheme} style={styles.container}>
 
         <Header>
-          <Title>Header</Title>
+          <Title>{menuItems.foodwaste}</Title>
           <Button transparent onPress={this.props.openDrawer}>
             <Icon name="ios-menu" />
           </Button>
         </Header>
 
         <Content padder>
-          <H3>This is content section</H3>
-          <Text style={{ marginTop: 10 }}>
-            Selected tab is: {this.state.tab1 ? 1 : this.state.tab2 ? 2 : this.state.tab3 ? 3 : 4}
-          </Text>
-        </Content>
-
-        <Footer >
-          <FooterTab>
-            <Button active={this.state.tab1} onPress={() => this.toggleTab1()} >
-                Apps
-              <Icon name="ios-apps-outline" />
-            </Button>
-            <Button active={this.state.tab2} onPress={() => this.toggleTab2()} >
-                Camera
-              <Icon name="ios-camera-outline" />
-            </Button>
-            <Button active={this.state.tab3} onPress={() => this.toggleTab3()} >
-                Navigate
-              <Icon name="ios-compass" />
-            </Button>
-            <Button active={this.state.tab4} onPress={() => this.toggleTab4()} >
-                Contact
-              <Icon name="ios-contact-outline" />
-            </Button>
-          </FooterTab>
-        </Footer>
+        <Card style={{padding:10}}>
+          {this.renderItems()}
+          </Card>
+          </Content>
       </Container>
     );
   }
