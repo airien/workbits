@@ -49,6 +49,9 @@
 		EA2207763D4C4121A124D2CA /* libRNTesseractOcr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19731F4F9A064411A4E3200B /* libRNTesseractOcr.a */; };
 		CA25673D74C04C228C918BEF /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB330C409547489B9D592A5E /* libRCTCamera.a */; };
 		2D5BC5CBF1A249B6A77F62DB /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E04909EF37A74782AB11BDA5 /* libReactNativePermissions.a */; };
+		C75625E53F9D40C596CA2968 /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79B42074399D406E81CEF0CF /* libRealmReact.a */; };
+		6D12EF34DDB64C56AD6A4BCE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D266472BFD47C397EA7E04 /* libc++.tbd */; };
+		8C31F3FA2CE74F7B9833CCFD /* libRNBackgroundTimer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36600773049746559E92428F /* libRNBackgroundTimer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,6 +265,11 @@
 		AB330C409547489B9D592A5E /* libRCTCamera.a */ = {isa = PBXFileReference; name = "libRCTCamera.a"; path = "libRCTCamera.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		23D29BD6F3AA441197046B6A /* ReactNativePermissions.xcodeproj */ = {isa = PBXFileReference; name = "ReactNativePermissions.xcodeproj"; path = "../node_modules/react-native-permissions/ReactNativePermissions.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		E04909EF37A74782AB11BDA5 /* libReactNativePermissions.a */ = {isa = PBXFileReference; name = "libReactNativePermissions.a"; path = "libReactNativePermissions.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		3D11E6FF1ECD4B52A651BB98 /* RealmReact.xcodeproj */ = {isa = PBXFileReference; name = "RealmReact.xcodeproj"; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		79B42074399D406E81CEF0CF /* libRealmReact.a */ = {isa = PBXFileReference; name = "libRealmReact.a"; path = "libRealmReact.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		77D266472BFD47C397EA7E04 /* libc++.tbd */ = {isa = PBXFileReference; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
+		2A43D5EF38B049C8AA012E8D /* RNBackgroundTimer.xcodeproj */ = {isa = PBXFileReference; name = "RNBackgroundTimer.xcodeproj"; path = "../node_modules/react-native-background-timer/ios/RNBackgroundTimer.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		36600773049746559E92428F /* libRNBackgroundTimer.a */ = {isa = PBXFileReference; name = "libRNBackgroundTimer.a"; path = "libRNBackgroundTimer.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +302,9 @@
 				EA2207763D4C4121A124D2CA /* libRNTesseractOcr.a in Frameworks */,
 				CA25673D74C04C228C918BEF /* libRCTCamera.a in Frameworks */,
 				2D5BC5CBF1A249B6A77F62DB /* libReactNativePermissions.a in Frameworks */,
+				C75625E53F9D40C596CA2968 /* libRealmReact.a in Frameworks */,
+				6D12EF34DDB64C56AD6A4BCE /* libc++.tbd in Frameworks */,
+				8C31F3FA2CE74F7B9833CCFD /* libRNBackgroundTimer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +475,8 @@
 				3BC6D3F0658A4EE789113CB6 /* RNTesseractOcr.xcodeproj */,
 				EB557B06B26049BEADF7AE3B /* RCTCamera.xcodeproj */,
 				23D29BD6F3AA441197046B6A /* ReactNativePermissions.xcodeproj */,
+				3D11E6FF1ECD4B52A651BB98 /* RealmReact.xcodeproj */,
+				2A43D5EF38B049C8AA012E8D /* RNBackgroundTimer.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -520,6 +533,7 @@
 			isa = PBXGroup;
 			children = (
 				5F644FCEFAE94E61B19AC619 /* libz.tbd */,
+				77D266472BFD47C397EA7E04 /* libc++.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -916,6 +930,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NativebaseKitchenSink.app/NativebaseKitchenSink";
@@ -932,6 +948,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1020,6 +1038,8 @@
 					"$(SRCROOT)/../node_modules/react-native-tesseract-ocr/ios",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)\..\node_modules\react-native-permissions/**",
+					"$(SRCROOT)\..\node_modules\realm\src/**",
+					"$(SRCROOT)\..\node_modules\react-native-background-timer\ios",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1065,6 +1085,8 @@
 					"$(SRCROOT)/../node_modules/react-native-tesseract-ocr/ios",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 					"$(SRCROOT)\..\node_modules\react-native-permissions/**",
+					"$(SRCROOT)\..\node_modules\realm\src/**",
+					"$(SRCROOT)\..\node_modules\react-native-background-timer\ios",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;

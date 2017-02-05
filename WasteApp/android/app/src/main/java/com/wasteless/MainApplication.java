@@ -3,7 +3,10 @@ package com.wasteless;
 import android.app.Application;
 import android.util.Log;
 
+import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.facebook.react.ReactApplication;
+import com.ocetnik.timer.BackgroundTimerPackage;
+import io.realm.react.RealmReactPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.joshblour.reactnativepermissions.ReactNativePermissionsPackage;
 import com.anyline.reactnative.AnylinePackage;
@@ -28,7 +31,10 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new BackgroundTimerPackage(),
+            new RealmReactPackage(),
             new VectorIconsPackage(),
+              new ReactNativePushNotificationPackage(), // <---- Add the Package
          new AnylinePackage()
       );
     }

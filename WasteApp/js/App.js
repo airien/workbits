@@ -8,6 +8,7 @@ import Modal from 'react-native-modalbox';
 import AppNavigator from './AppNavigator';
 import ProgressBar from './components/loaders/ProgressBar';
 
+import realm from './components/newitem/realm';
 import theme from './themes/base-theme';
 
 const styles = StyleSheet.create({

@@ -64,5 +64,21 @@ module.exports = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,
+  },
+  listItem: {
+  flexDirection: 'row',
+  paddingBottom:5
+  },
+  ikonknapp :{
+    backgroundColor:'#ff6666',
+    width: 30,
+    height:30,
+    paddingTop: (Platform.OS === 'android') ? 25 : 5
+  },
+  listText: {
+    fontWeight:'bold',
+    flex:1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });

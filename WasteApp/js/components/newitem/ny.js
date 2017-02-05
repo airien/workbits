@@ -8,8 +8,7 @@ import  {
  } from 'react-native';
 import { openDrawer } from '../../actions/drawer';
 import styles from './styles';
-
-
+import schema from './realm';
 import AnylineOCR from 'anyline-ocr-react-native-module';
 import DatePicker from './datepicker';
 import Result from './Result';
@@ -25,9 +24,8 @@ import Moment from 'moment';
 import myTheme from '../../themes/base-theme';
 var menuItems = require('../../data/sidebar.json');
 var Item = Picker.Item;
-
-var Datastore = require('react-native-local-mongodb')
-  , db = new Datastore({ filename: 'asyncStorageKey', autoload: true });
+var PushNotification = require('react-native-push-notification');
+import realm from './realm';
 
 const {
   replaceAt,
@@ -65,14 +63,10 @@ class NewItem extends Component {
   }
 init(){
     var self = this;
+    var count = realm.objects('Dairy').length
     self.setState({
-                    count: 0,
-                });
-        db.count({}, function (err, count) {    
-                self.setState({
                     count: count,
                 });
-        });
 }
     openOCR = () => {
         AnylineOCR.setupScanViewWithConfigJson(
@@ -137,20 +131,34 @@ init(){
         });
     };
 
+    writeToDb(state){
+        realm.write(() => {
+            var i = realm.objects('Dairy').length;
+            let item = realm.create('Dairy', {id: i, type: state.type, date: state.date});
+        });
+    }
+
     onError = (error) => {
         console.error(error);
         alert(error);
     };
-    saveItem(state){
-        var self = this;
+    saveItem(state)
+    {
+        var date = moment(state.date).format('DD.MM.YYYY');
+
+
+        PushNotification.localNotificationSchedule({
+            id:state.id,
+            type:state.type,
+            message: "Din "+state.type+" holder på å gå ut!", // (required)
+            date: date.toDate()
+        });
+      
+      var self = this;
       if(state.type && state.date)
       {
-        alert("saving item! "+state.count);  
-            db.insert({id: state.count, date:state.date, type:state.type}, function (err, newDoc) {   
-                self.replaceAt('dairy');
-            });
-
-
+        self.writeToDb(state);
+         self.replaceAt('dairy');
       }
       else{
         alert("fyll inn informasjon!");
@@ -245,3 +253,38 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, bindAction)(NewItem);
+
+
+PushNotification.configure({
+
+    // (optional) Called when Token is generated (iOS and Android)
+    onRegister: function(token) {
+        console.log( 'TOKEN:', token );
+    },
+
+    // (required) Called when a remote or local notification is opened or received
+    onNotification: function(notification) {
+        console.log( 'NOTIFICATION:', notification );
+    },
+
+    // ANDROID ONLY: GCM Sender ID (optional - not required for local notifications, but is need to receive remote push notifications) 
+    senderID: "YOUR GCM SENDER ID",
+
+    // IOS ONLY (optional): default: all - Permissions to register.
+    permissions: {
+        alert: true,
+        badge: true,
+        sound: true
+    },
+
+    // Should the initial notification be popped automatically
+    // default: true
+    popInitialNotification: true,
+
+    /**
+      * (optional) default: true
+      * - Specified if permissions (ios) and token (android and ios) will requested or not,
+      * - if not, you must call PushNotificationsHandler.requestPermissions() later
+      */
+    requestPermissions: true,
+});

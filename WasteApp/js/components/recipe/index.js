@@ -6,7 +6,6 @@ import { Container, Header, Title, Content, Button, Icon, Text } from 'native-ba
 var recipeText = require('../../data/recipetext.json');
 var menuItems = require('../../data/sidebar.json');
 import styles from './styles';
-
 import myTheme from '../../themes/base-theme';
 import { openDrawer } from '../../actions/drawer';
 
