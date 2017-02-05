@@ -125,10 +125,18 @@ init(){
     onResult = (dataString) => {
         const data = JSON.parse(dataString);
         alert(dataString);
-        this.setState({
-            hasScanned: true,
-            day: data.reading
-        });
+        if(dataString.length > 7)
+        {
+     
+            var first = dataString.substring(0,1);
+            var second = dataString.substring(2,3);
+            var third = dataString.substring(6,7);
+            this.setState({
+                hasScanned: true,
+                date: first + '.'+second+'.'+'20'+third
+            });
+        }         
+    
     };
 
     writeToDb(state){
@@ -144,17 +152,26 @@ init(){
     };
     saveItem(state)
     {
-        var date = moment(state.date).format('DD.MM.YYYY');
-        PushNotification.localNotificationSchedule({
-            id:state.id,
-            type:state.type,
-            message: "Din "+state.type+" holder på å gå ut!", // (required)
-            date: date.toDate()
-        });
-      
       var self = this;
       if(state.type && state.date)
       {
+        if(state.date.length === 10)
+        {
+            var first = state.date.substring(0,1);
+            var second = state.date.substring(2,3);
+            var third = state.date.substring(6,9);
+            var date = new Date();
+            date.setDate(first);
+            date.setMonth(second);
+            date.setFullYear(third,second,first);
+                 
+            PushNotification.localNotificationSchedule({
+                id:state.id,
+                type:state.type,
+                message: "Din "+state.type+" holder på å gå ut!", // (required)
+                date: date
+            });
+        }
         self.writeToDb(state);
          self.replaceAt('dairy');
       }

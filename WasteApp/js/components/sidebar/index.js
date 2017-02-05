@@ -38,6 +38,25 @@ class SideBar extends Component {
 
         </Image>
         <List>
+
+          <ListItem button iconLeft onPress={() => this.navigateTo('foodwaste')} >
+            <View style={styles.listItemContainer}>
+              <View style={[styles.iconContainer, { backgroundColor: '#8cc739', paddingLeft: 14 }]}>
+                <Icon name="ios-trash" style={styles.sidebarIcon} />
+              </View>
+              <Text style={styles.text}>{menuItems.foodwaste}</Text>
+            </View>
+          </ListItem>
+
+          <ListItem button iconLeft onPress={() => this.navigateTo('whatisinitforme')} >
+            <View style={styles.listItemContainer}>
+              <View style={[styles.iconContainer, { backgroundColor: '#31c3e7' }]}>
+                <Icon name="ios-body" style={styles.sidebarIcon} />
+              </View>
+              <Text style={styles.text}>{menuItems.whatisinitforme}</Text>
+            </View>
+          </ListItem>
+          
           <ListItem button iconLeft onPress={() => this.navigateTo('recipe')} >
             <View style={styles.listItemContainer}>
               <View style={[styles.iconContainer, { backgroundColor: '#21bede', paddingLeft: 11 }]}>
@@ -52,22 +71,6 @@ class SideBar extends Component {
                 <Icon name="ios-stopwatch" style={styles.sidebarIcon} />
               </View>
               <Text style={styles.text}>{menuItems.dairy}</Text>
-            </View>
-          </ListItem>
-          <ListItem button iconLeft onPress={() => this.navigateTo('foodwaste')} >
-            <View style={styles.listItemContainer}>
-              <View style={[styles.iconContainer, { backgroundColor: '#8cc739', paddingLeft: 14 }]}>
-                <Icon name="ios-trash" style={styles.sidebarIcon} />
-              </View>
-              <Text style={styles.text}>{menuItems.foodwaste}</Text>
-            </View>
-          </ListItem>
-              <ListItem button iconLeft onPress={() => this.navigateTo('whatisinitforme')} >
-            <View style={styles.listItemContainer}>
-              <View style={[styles.iconContainer, { backgroundColor: '#31c3e7' }]}>
-                <Icon name="ios-body" style={styles.sidebarIcon} />
-              </View>
-              <Text style={styles.text}>{menuItems.whatisinitforme}</Text>
             </View>
           </ListItem>
           <ListItem button iconLeft onPress={() => this.navigateTo('quiz')} >
