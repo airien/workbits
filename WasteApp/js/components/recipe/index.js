@@ -66,8 +66,8 @@ return (
         <Content padder>
         <Text style={{paddingBottom:20}}>{recipeText.text}</Text>
           <Button block style={styles.melkeknapp} onPress={() => this.replaceAt('milk')}>Melk</Button>
-          <Button block style={styles.osteknapp} onPress={() => this.replaceAt('milk')}>Ost</Button>
-          <Button block style={styles.andreknapp} onPress={() => this.replaceAt('milk')}>Andre</Button>
+          <Button block style={styles.osteknapp} onPress={() => this.replaceAt('cheese')}>Ost</Button>
+          <Button block style={styles.andreknapp} onPress={() => this.replaceAt('other')}>Andre</Button>
         </Content>
       </Container>
 );

@@ -118,7 +118,7 @@ previous(current){
         );
       }
       questions.push(
-            <Card style={[styles.mb, { flex: 0 }]} key={'QuestionCard_'+this.state.side}>
+            <Card key={'card_'+this.state.side} style={[styles.mb, { flex: 0 }]} key={'QuestionCard_'+this.state.side}>
               <CardItem>
                 {image}
                 <Text>{now.question}</Text>
@@ -134,15 +134,15 @@ previous(current){
       {
         var button = [];
         if(this.state.side == this.state.quiz.length - 1) {
-            button.push(<Button success large style={styles.mb15} onPress={() => this.answer(this.state.score)}>Ferdig!</Button>); 
+            button.push(<Button key="endbutton" success large style={styles.mb15} onPress={() => this.answer(this.state.score)}>Ferdig!</Button>); 
         }
         else if(this.state.side == 0)
         {
-          button.push(<Button success large style={styles.mb15} onPress={() => this.next(this.state.side)}>Neste</Button>);
+          button.push(<Button key="nextbutton" success large style={styles.mb15} onPress={() => this.next(this.state.side)}>Neste</Button>);
         }
         else{
-          button.push(<Button success large style={styles.mb15} onPress={() => this.next(this.state.side)}>Neste</Button>);
-          button.push(<Button success large style={styles.mb15} onPress={() => this.previous(this.state.side)}>Forrige</Button>);
+          button.push(<Button key="nextbutton" success large style={styles.mb15} onPress={() => this.next(this.state.side)}>Neste</Button>);
+          button.push(<Button key="prevbutton" success large style={styles.mb15} onPress={() => this.previous(this.state.side)}>Forrige</Button>);
         }
         return (
             <Container theme={myTheme} style={styles.container}>

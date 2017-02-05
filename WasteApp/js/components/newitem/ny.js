@@ -145,8 +145,6 @@ init(){
     saveItem(state)
     {
         var date = moment(state.date).format('DD.MM.YYYY');
-
-
         PushNotification.localNotificationSchedule({
             id:state.id,
             type:state.type,

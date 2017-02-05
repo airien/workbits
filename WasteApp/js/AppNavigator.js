@@ -9,6 +9,10 @@ import { closeDrawer } from './actions/drawer';
 
 import Home from './components/home/';
 import Recipe from './components/recipe/';
+import Cheese from './components/recipe/cheese';
+
+import Other from './components/recipe/other';
+import Milk from './components/recipe/milkrecipe';
 import Dairy from './components/newitem/index';
 import NewItem from './components/newitem/ny';
 import FoodWaste from './components/foodwaste/';
@@ -82,9 +86,14 @@ class AppNavigator extends Component {
         return <SplashPage />;
       case 'home':
         return <Home />;
-
+      case 'milk':
+        return <Milk />;
       case 'recipe':
         return <Recipe />;
+      case 'other':
+        return <Other />;
+      case 'cheese':
+        return <Cheese />;
       case 'dairy':
         return <Dairy />;
       case 'newitem':
