@@ -157,14 +157,19 @@ init(){
       {
         if(state.date.length === 10)
         {
-            var first = state.date.substring(0,1);
-            var second = state.date.substring(2,3);
-            var third = state.date.substring(6,9);
+            var now = new Date();
+            var first = parseInt(state.date.substring(0,2));
+            var second = parseInt(state.date.substring(3,5))-1;
+            var third = parseInt(state.date.substring(6,10));
             var date = new Date();
             date.setDate(first);
             date.setMonth(second);
             date.setFullYear(third,second,first);
-                 
+            date.setHours(now.getHours());
+            date.setMinutes(now.getMinutes());
+            date.setSeconds(now.getSeconds()+5);
+          //  alert(date.toLocaleString());
+            
             PushNotification.localNotificationSchedule({
                 id:state.id,
                 type:state.type,
@@ -203,7 +208,6 @@ init(){
        
 
       <View style={styles.knappContainer}>
-      {platformText}  
       </View>
       <View style={{marginTop:15, marginBottom:15}}>
 
@@ -255,23 +259,11 @@ init(){
 
         );
     }
+
+   
 }
 
-function bindAction(dispatch) {
-  return {
-    openDrawer: () => dispatch(openDrawer()),
-    replaceAt: (routeKey, route, key) => dispatch(replaceAt(routeKey, route, key)),
-  };
-}
-const mapStateToProps = state => ({
-  navigation: state.cardNavigation,
-});
-
-export default connect(mapStateToProps, bindAction)(NewItem);
-
-
-PushNotification.configure({
-
+ PushNotification.configure({
     // (optional) Called when Token is generated (iOS and Android)
     onRegister: function(token) {
         console.log( 'TOKEN:', token );
@@ -279,7 +271,10 @@ PushNotification.configure({
 
     // (required) Called when a remote or local notification is opened or received
     onNotification: function(notification) {
-        console.log( 'NOTIFICATION:', notification );
+        alert("notification: "+notification)
+      //  dispatch(replaceAt("newitem", { key: "milk"}, "newitem"));//{ key: route }, this.props.navigation.key
+      replaceAt('newitem', { key: notification.type.toLowerCase() }, "newitem");
+        console.log( 'NOTIFICATION:', JSON.stringify(notification) );
     },
 
     // ANDROID ONLY: GCM Sender ID (optional - not required for local notifications, but is need to receive remote push notifications) 
@@ -303,3 +298,16 @@ PushNotification.configure({
       */
     requestPermissions: true,
 });
+
+function bindAction(dispatch) {
+  return {
+    openDrawer: () => dispatch(openDrawer()),
+    replaceAt: (routeKey, route, key) => dispatch(replaceAt(routeKey, route, key)),
+  };
+}
+const mapStateToProps = state => ({
+  navigation: state.cardNavigation,
+});
+
+export default connect(mapStateToProps, bindAction)(NewItem);
+

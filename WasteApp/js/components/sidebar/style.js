@@ -17,7 +17,7 @@ module.exports = StyleSheet.create({
     height: deviceHeight / 3.5,
     width: null,
     position: 'relative',
-    marginBottom: 10,
+    marginBottom: 10
   },
   drawerImage: {
     position: 'absolute',

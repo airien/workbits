@@ -6,10 +6,13 @@ const { StyleSheet, Dimensions, Platform } = React;
 const deviceHeight = Dimensions.get('window').height;
 
 module.exports = StyleSheet.create({
+    container: {
+    backgroundColor: '#FFF',
+  },
   imageContainer: {
     flex: 1,
     width: null,
-    height: null,
+    height: 400,
   },
   logoContainer: {
     flex: 1,

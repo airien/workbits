@@ -8,7 +8,8 @@ import navigateTo from '../../actions/sideBarNav';
 import sidebarTheme from './sidebar-theme';
 import styles from './style';
 
-const drawerCover = require('../../../img/cows.jpg');
+//const drawerCover = require('../../../img/cows.jpg');
+import Images from '../../../assets/images';
 
 class SideBar extends Component {
 
@@ -34,10 +35,12 @@ class SideBar extends Component {
         theme={sidebarTheme}
         style={styles.sidebar}
       >
-        <Image source={drawerCover} style={styles.drawerCover}>
+        <Image source={Images.slidertop} style={styles.drawerCover}>
 
         </Image>
-        <List>
+        <List style={{
+    borderTopColor: "#667755",
+    borderTopWidth: 3,paddingTop:20}}>
 
           <ListItem button iconLeft onPress={() => this.navigateTo('foodwaste')} >
             <View style={styles.listItemContainer}>

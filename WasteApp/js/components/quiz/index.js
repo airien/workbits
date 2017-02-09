@@ -2,9 +2,12 @@
 import React, { Component } from 'react';
 import {Image} from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Header, Title, Content, Text, H3, Button, Icon, Card, CardItem, CheckBox } from 'native-base';
+import { Container, Header, Title, Content, Text, H3, Button, Icon, Card, CardItem, CheckBox, View } from 'native-base';
 import { openDrawer } from '../../actions/drawer';
 import myTheme from '../../themes/base-theme';
+
+import Images from '../../../assets/images';
+
 var menuItems = require('../../data/sidebar.json');
 import styles from './styles';
 var quizfromfile = require('../../data/quiz.json');
@@ -16,7 +19,7 @@ class Quiz extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {quiz : quizfromfile.questions, side: 0, ferdig:false, texts: quizfromfile.texts};
+    this.state = {quiz : quizfromfile.questions, side: -1, ferdig:false, texts: quizfromfile.texts};
   }
 
 
@@ -33,7 +36,7 @@ class Quiz extends Component {
     for(let i = 0; i < q.length; i++){
         q[i].selected = -1;
     } 
-    this.setState({quiz : q, side: 0, score:0,ferdig:false});
+    this.setState({quiz : q, side: -1, score:0,ferdig:false});
   }
    toggleCheck(key, alternative) {
     var q = this.state.quiz;
@@ -76,13 +79,31 @@ previous(current){
          randomtext : this.state.texts[randomIndex]
       });
   }
-
+  renderImageItems(imageitems)
+  {
+    var width = imageitems.length % 3 === 0 ? 100 : 150;
+    return imageitems.map((item,index)=>
+    {       
+      return  ( <Image key={'question'+index} style={{ resizeMode: 'contain', height:75, width: width, padding:20, marginTop:10 }} source={ Images[item]} />);
+    });
+  }
+  renderLimit(score) {
+    return quizfromfile.texts.map((item,index)=>
+    {       //  {"limit":2,"title":"", "text": "Du er en ‘Food student’! Du kan fortsatt lære en del om matsvinn og hvordan forebygge det"},
+        return  (score >= item.low && score <= item.limit ? <Text key={'texts_results'+index}>{item.text}</Text>: <Text  key={'question_res'+index} ></Text>);
+    });
+  }
+  renderAlternative(item) {
+      if(item.type === "image")
+      {
+          return  ( <Image key={'alternative'+item.key} style={{ resizeMode: 'cover', width: null, height:150 }} source={ Images[item.answer]} />);
+      }
+       return (<Text key={'alternative'+item.key}>{item.answer}</Text>);
+  }
   render() {
 
-   var now = this.state.quiz[this.state.side];
-   if(!now)
+   if(this.state.side == -1)
    {
-//feilsitiasjon
       return(
             <Container theme={myTheme} style={styles.container}>
               <Header>
@@ -93,34 +114,34 @@ previous(current){
               </Header>
             <Content>
             <CardItem>
-              <Text> {this.state.side}</Text>      
-              <Text>{JSON.stringify(this.state.quiz)}</Text>
+             <Button key="nextbutton" success large style={styles.mb15} onPress={() => this.next(this.state.side)}>Start</Button>
+              <Text> {quizfromfile.start}</Text>      
             </CardItem> 
           </Content>
           </Container>
       ); 
     }
-    var imageSrc;
-    if(now.hasOwnProperty("image") )
-      imageSrc = now.image;
-    var image = <Text></Text>;
-    if(imageSrc)
-        image = <Image style={{ resizeMode: 'cover', width: null, height:200 }} source={ { uri: imageSrc}} />
+  
+    var now = this.state.quiz[this.state.side];
+    var images = <Text></Text>;    
+    if(now.hasOwnProperty("images") )
+    {
+      images = this.renderImageItems(now.images)
+    }
       var questions = [];
       var answers = [];
       for(let y = 0; y < now.alternatives.length; y++)
       {
         answers.push(
         <CardItem cardBody key={'Alternative_'+this.state.side+'_'+y}>
-          <Text>{now.alternatives[y].answer}</Text>
-          <CheckBox checked={now.selected == y} onPress={() => this.toggleCheck(this.state.side,y)}/>
+    <View>{this.renderAlternative(now.alternatives[y])}<CheckBox checked={now.selected == y} onPress={() => this.toggleCheck(this.state.side,y)}/></View>
         </CardItem>
         );
       }
-      questions.push(
+      var questions = (
             <Card key={'card_'+this.state.side} style={[styles.mb, { flex: 0 }]} key={'QuestionCard_'+this.state.side}>
               <CardItem>
-                {image}
+                <View style={{flex: 1, flexDirection: 'row',flexWrap: 'wrap' , marginBottom:20}}>{images}</View>
                 <Text>{now.question}</Text>
               </CardItem>
                 {
@@ -146,9 +167,8 @@ previous(current){
         }
         return (
             <Container theme={myTheme} style={styles.container}>
-
               <Header>
-                <Title>Header</Title>
+                <Title>{menuItems.quiz}</Title>
                 <Button transparent onPress={this.props.openDrawer}>
                   <Icon name="ios-menu" />
                 </Button>
@@ -172,14 +192,13 @@ previous(current){
                 </Button>
               </Header>
             <Content>
-              <Text style={{marginLeft:10,paddingTop:50}}>
-                Du fikk {this.state.score} poeng!
-
-              </Text>
-              <Text style={{marginLeft:10, paddingBottom:50}}>{this.state.randomtext}</Text>
               <CardItem>
                   <Button success large style={styles.mb15} onPress={() => this.resetState()}>Begynn på nytt</Button> 
               </CardItem>
+              <Text style={{marginLeft:10,paddingTop:50}}>
+                Du fikk {this.state.score} poeng!
+              </Text>
+            <View style={{padding:10}}>{this.renderLimit(this.state.score)}</View>
           </Content>
           </Container>);
       }

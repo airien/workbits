@@ -11,7 +11,7 @@ export default function configureStore(onCompletion:()=>void):any {
   const enhancer = compose(
     applyMiddleware(thunk, promise),
     devTools({
-      name: 'WasteLess', realtime: true,
+      name: 'Foodsaver', realtime: true,
     }),
   );
 

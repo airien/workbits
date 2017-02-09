@@ -1,46 +1,42 @@
 
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { Image,View, ListView } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Button, View, H3 } from 'native-base';
 
+import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Thumbnail, DeckSwiper } from 'native-base';
 import { openDrawer } from '../../actions/drawer';
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
 
-const launchscreenBg = require('../../../img/cowzer.jpg');
-const launchscreenLogo = require('../../../img/cowlogo.png');
+import Images from '../../../assets/images';
 
-class Home extends Component { // eslint-disable-line
+class Home extends Component {
 
   static propTypes = {
     openDrawer: React.PropTypes.func,
   }
 
-  render() {
-    return (
-      <Container theme={myTheme}>
-        <Image source={launchscreenBg} style={styles.imageContainer}>
-          <View style={styles.logoContainer}>
-          </View>
-          <View style={{ alignItems: 'center', marginBottom: 50, backgroundColor: 'transparent' }}>
-            <H3 style={styles.text}>App to help YOU</H3>
-            <View style={{ marginTop: 8 }} />
-            <H3 style={styles.text}>waste less food</H3>
-          </View>
-          <View>
-            <Button
-              style={{ backgroundColor: '#6FAF98', alignSelf: 'center', bottom:50 }}
-              onPress={this.props.openDrawer}>
-                Lets Go!
-            </Button>
-          </View>
-        </Image>
-      </Container>
-    );
-  }
-}
+render() {
+  return(
+          
+    <Container theme={myTheme} style={styles.container}>
 
+        <Header>
+          <Title>Foodsaver</Title>
+          <Button transparent onPress={this.props.openDrawer}>
+            <Icon name="ios-menu" />
+          </Button>
+        </Header>
+
+        <Content padder>
+        <Image source={Images.frontpage} style={styles.imageContainer}>
+          
+        </Image>
+      </Content>
+      </Container>
+  );
+}
+}
 function bindActions(dispatch) {
   return {
     openDrawer: () => dispatch(openDrawer()),

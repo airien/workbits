@@ -1,4 +1,4 @@
-package com.wasteless;
+package com.foodsaver;
 
 import android.app.Application;
 import android.util.Log;
