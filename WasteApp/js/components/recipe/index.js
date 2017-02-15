@@ -5,6 +5,7 @@ import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Title, Content, Button, Icon, Text } from 'native-base';
 var recipeText = require('../../data/recipetext.json');
 var menuItems = require('../../data/sidebar.json');
+var recipeItems = require('../../data/menurecipes.json');
 import styles from './styles';
 import myTheme from '../../themes/base-theme';
 import { openDrawer } from '../../actions/drawer';
@@ -64,10 +65,15 @@ return (
         </Header>
 
         <Content padder>
-        <Text style={{paddingBottom:20}}>{recipeText.text}</Text>
-          <Button block style={styles.melkeknapp} onPress={() => this.replaceAt('milk')}>Melk</Button>
-          <Button block style={styles.osteknapp} onPress={() => this.replaceAt('cheese')}>Ost</Button>
-          <Button block style={styles.andreknapp} onPress={() => this.replaceAt('other')}>Andre</Button>
+
+      
+          <Button block style={styles.melkeknapp} onPress={() => this.replaceAt('milk')}>{recipeItems.milk}</Button>
+          <Button block style={styles.osteknapp} onPress={() => this.replaceAt('sourmilk')}>{recipeItems.sourmilk}</Button>
+          <Button block style={styles.andreknapp} onPress={() => this.replaceAt('cheese')}>{recipeItems.cheese}</Button>
+          <Button block style={styles.melkeknapp} onPress={() => this.replaceAt('bread')}>{recipeItems.bread}</Button>
+          <Button block style={styles.osteknapp} onPress={() => this.replaceAt('fruitveg')}>{recipeItems.fruitveg}</Button>
+          <Button block style={styles.andreknapp} onPress={() => this.replaceAt('meat')}>{recipeItems.meat}</Button>
+          <Button block style={styles.melkeknapp} onPress={() => this.replaceAt('other')}>{recipeItems.oppskrifter}</Button>
         </Content>
       </Container>
 );

@@ -68,9 +68,7 @@
 "images":[],
     "alternatives" : [
         {"key":0, "type": "text", "answer":"Nei, det må være en spøk"},
-        {"key":1, "type": "text", "answer":"Det kan være sant"},
-        {"key":2, "type": "text", "answer":"Bruke den i pasta"},
-        {"key":3, "type": "text", "answer":"Bruke den i vaffelrøre"}
+        {"key":1, "type": "text", "answer":"Det kan være sant"}
         ],
     "selected":null,
     "answer" : 1

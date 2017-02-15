@@ -83,7 +83,7 @@ init(){
   }
     requestCameraPermission = async() => {
 
-
+        this.openOCR();
         try {
             const granted = await PermissionsAndroid.requestPermission(
                 PermissionsAndroid.PERMISSIONS.CAMERA
@@ -111,6 +111,7 @@ init(){
     };
 
     checkCameraPermissionAndOpen = () => {
+        alert("boo");
         this.hasCameraPermission().then((hasCameraPermission) => {
             console.log('hasCameraPermission result is ' + hasCameraPermission);
             if (hasCameraPermission) {
@@ -190,7 +191,10 @@ init(){
         } = this.state;
 
         const platformText = (Platform.OS === 'android') ?
-            (<Button style={styles.knapp} onPress={this.checkCameraPermissionAndOpen}><Icon name="ios-camera-outline" style={styles.icon} /></Button>) :
+            (<Button style={styles.knapp} onPress={() => {
+                this.checkCameraPermissionAndOpen();
+                alert("what=");
+            }}><Icon name="ios-camera-outline" style={styles.icon} />  </Button>) :
             (<Button style={styles.knapp}  onPress={this.openOCR}><Icon name="ios-camera-outline" style={styles.icon} /></Button>);
             
      
@@ -205,9 +209,9 @@ init(){
         </Header>
 
         <Content padder>
-       
 
       <View style={styles.knappContainer}>
+       {platformText}
       </View>
       <View style={{marginTop:15, marginBottom:15}}>
 
@@ -259,8 +263,6 @@ init(){
 
         );
     }
-
-   
 }
 
  PushNotification.configure({
@@ -271,9 +273,9 @@ init(){
 
     // (required) Called when a remote or local notification is opened or received
     onNotification: function(notification) {
-        alert("notification: "+notification)
+        alert("notification: "+ JSON.stringify(notification) )
       //  dispatch(replaceAt("newitem", { key: "milk"}, "newitem"));//{ key: route }, this.props.navigation.key
-      replaceAt('newitem', { key: notification.type.toLowerCase() }, "newitem");
+        replaceAt('newitem', { key: notification.type.toLowerCase() }, "newitem");
         console.log( 'NOTIFICATION:', JSON.stringify(notification) );
     },
 

@@ -1,8 +1,8 @@
 {
-    "recipe" : "Oppskrift",
-    "newitem" : "Nytt meieriprodukt",
-    "dairy" : "Min melk",
-    "foodwaste" : "Matavfall",
-    "whatisinitforme" :"Hva får jeg ut av det?",
-    "quiz" : "Quiz"
+    "foodwaste" : "Fakta om matavfall",
+    "whatisinitforme" :"Hvor mye kan jeg spare?",
+	"recipe" : "Tips og oppskrifter",
+    "dairy" : "Min Melk",
+    "quiz" : "Quiz",
+    "newItem" : "Legg til"
 }

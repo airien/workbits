@@ -13,6 +13,12 @@ import Cheese from './components/recipe/cheese';
 
 import Other from './components/recipe/other';
 import Milk from './components/recipe/milkrecipe';
+import SourMilk from './components/recipe/sourmilk';
+import Bread from './components/recipe/bread';
+import FruitVeg from './components/recipe/fruitveg';
+import Meat from './components/recipe/meat';
+
+
 import Dairy from './components/newitem/index';
 import NewItem from './components/newitem/ny';
 import FoodWaste from './components/foodwaste/';
@@ -94,6 +100,14 @@ class AppNavigator extends Component {
         return <Other />;
       case 'cheese':
         return <Cheese />;
+      case 'sourmilk':
+        return <SourMilk />;
+      case 'bread':
+        return <Bread />;
+      case 'fruitveg':
+        return <FruitVeg />;
+      case 'meat':
+        return <Meat />;
       case 'dairy':
         return <Dairy />;
       case 'newitem':
@@ -104,9 +118,6 @@ class AppNavigator extends Component {
         return <WhatIsInItForMe />;
       case 'quiz':
         return <Quiz />;
-
-
-    
       default :
         return <Home />;
     }

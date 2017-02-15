@@ -12,7 +12,8 @@ module.exports = StyleSheet.create({
   imageContainer: {
     flex: 1,
     width: null,
-    height: 400,
+    height: 500,
+    marginTop: 10
   },
   logoContainer: {
     flex: 1,

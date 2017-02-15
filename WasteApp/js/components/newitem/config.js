@@ -34,18 +34,18 @@ export default {
     "strokeColor": "0099FF"
   }
 },
+
   ocr: {
-        "scanMode": "GRID",
+        "scanMode": "LINE",
         "minCharHeight": 16,
         "maxCharHeight": 85,
         "traineddataFiles": ["tessdata/eng_no_dict.traineddata"],
-        "charWhitelist": "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.",
-        "validationRegex": "(0[1-9]|[12]\d|3[01])\.(0[1-9]|1[012])\.\d{2}",
-        "minConfidence": 85,
+        "charWhitelist": "0123456789.",
+        "validationRegex": "^(0[1-9]|[12]\d|3[01])\.(0[1-9]|1[012])\.\d{2}$",
+        "minConfidence": 65,
         "removeSmallContours": true,
         "charCountX": 8,
         "charCountY": 1,
-        "charPaddingXFactor": 0.5,
-        "isBrightTextOnDark": true
+        "isBrightTextOnDark": false
     }
 }

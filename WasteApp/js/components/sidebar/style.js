@@ -11,13 +11,19 @@ module.exports = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  imageContainer: {
+    flex: 1,
+    alignItems:'flex-start',
+    justifyContent:'flex-start'
+  },
   drawerCover: {
-    alignSelf: 'stretch',
-    // resizeMode: 'cover',
-    height: deviceHeight / 3.5,
-    width: null,
-    position: 'relative',
+    width:280,
+   height: deviceHeight / 5,
+    flex: 1,
+    resizeMode: 'contain',
+    marginTop: 20,
     marginBottom: 10
+  
   },
   drawerImage: {
     position: 'absolute',

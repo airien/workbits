@@ -14,6 +14,12 @@ const images = {
 	quiz6: require('./img/quiz6.png'),
 	slidertop: require('./img/slidertop.jpg'),
 	frontpage: require('./img/frontpage.png'),
+	checkmarkgreen: require('./img/checkmarkgreen.png'),	
+	biglogonew: require('./img/biglogonew.png'),	
+	greenleaf: require('./img/greenleaf.png'),
+	waterdrop: require('./img/waterdrop.png'),
+	whatwewaste: require('./img/whatwewaste.png'),
+	foodwastepyramid: require('./img/foodwastepyramid.png')
 };
 
 

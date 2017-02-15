@@ -6,18 +6,15 @@ import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, 
 var menuItems = require('../../data/sidebar.json');
 import myTheme from '../../themes/base-theme';
 import { openDrawer } from '../../actions/drawer';
-var recipes = require('../../data/cheserecipe.json');
-const logo = require('../../../img/cowlogo.png');
-const cardImage = require('../../../img/Milk-Tart2.jpg');
+var recipes = require('../../data/ost.json');
 import styles from './styles';
-import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
-
+import Hyperlink from 'react-native-hyperlink'
 
 const {
   replaceAt,
 } = actions;
 
-class Chese extends Component {
+class Cheese extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,98 +29,66 @@ class Chese extends Component {
     }),
   }
 
-  next()
-  {
-    var s;
-    if(this.state.recipe=== recipes.length-1)
-      s = 0;
-    else 
-      s = this.state.recipe+1;
-       this.setState({recipe :s});
-  }
-  previous(){
-    var s;
-     if(this.state.recipe === 0)
-      s= recipes.length-1;
-    else 
-      s = this.state.recipe-1;
-
-       this.setState({recipe :s});
-  }
-
   replaceAt(route) {
     this.props.replaceAt('cheese', { key: route }, this.props.navigation.key);
   }
 
-  listOfIngredients(ingr) {
-
-    return ingr.map((data, index) => {
-      return (
-       <Text key={index}>{data}</Text>
-      )
-    })
-
-}
-
-renderSwipeys(index)
+renderItems()
 {
-  return recipes.map((item,index)=>
+   return recipes.texts.map((item,index)=>
+  {        return  this.renderItem(item, index);
+  });
+}
+renderItem(item, index)
+{
+  if(item.type === "header")
   {
-        return  this.renderSwipey(item, index);
-  })
+    return (<Text key={'text_'+index} style={{fontWeight:'bold', fontSize:18, marginTop:10, marginBottom:10}}>{item.value}</Text>);
+  }
+  else if(item.type==="icon")
+  {
+    return <Icon key={'text_'+index} name={item.value} style={{ width: 45, height: 45, justifyContent: 'center' }} />;
+  }
+   else if(item.type==="image")
+  {    
+    return (
+      <Image key={'image_'+index} style={{ resizeMode: 'cover', width: null, height:150 }} source={ { uri: item.value}} />
+    
+      );
+  }  
+  else if(item.type === "link"){
+    return (<Hyperlink  key={'link'+index} onPress={ url => goToUrl(url) } linkStyle={ { color: '#2980b9', fontSize: 13 } }>
+    <Text style={ { fontSize: 12 } }>{item.value}</Text>
+  </Hyperlink>);
+  }
+  else if(item.type === "point")
+  {
+    return(<Text  key={'point'+index}>{'\u2022 {item.value}'}</Text>);
+  }
+  else {
+    return (<Text key={'text_'+index} style={{ fontSize:12, marginTop:10, marginBottom:10}}>{item.value}</Text>);
+  }
 }
 
-renderSwipey(item, index)
-{
-        return ( <Card key={index} style={{ elevation: 3 }}>
-                                <CardItem>
-                                    <Thumbnail source={{ uri: item.image}} />
-                                    <Text style={{fontWeight:'bold', fontSize:18, marginTop:10, marginBottom:10}}>{item.name}</Text>
-                                </CardItem>
-                                <CardItem>
-                                <Image style={{ resizeMode: 'cover', width: null, height:200 }} source={ { uri: item.image}} />
-                                 
-                                </CardItem>
-                                <CardItem>
-                                {this.listOfIngredients(item.texts)}
-                                </CardItem>
-                                <CardItem>
-                                    <Icon name="ios-heart" style={{ color: '#ED4A6A' }} />
-                                    <Text>{item.name}</Text>
-                                </CardItem>
-                            </Card>)
-}
+
   render() {
-
-   const config = {
-      velocityThreshold: 0.3,
-      directionalOffsetThreshold: 150
-    };
-return (
+    return (
       <Container theme={myTheme} style={styles.container}>
-       <Header>
-          <Title>{menuItems.recipe}</Title>
+
+        <Header>
+          <Title>{menuItems.whatisinitforme}</Title>
           <Button transparent onPress={this.props.openDrawer}>
             <Icon name="ios-menu" />
           </Button>
         </Header>
-                <Content>
-                    <GestureRecognizer
-        onSwipeLeft={(state) => this.previous()}
-        onSwipeRight={(state) => this.next()}
-        config={config}
-        style={{
-          flex: 1,
-          backgroundColor: this.state.backgroundColor
-        }}
-        >
-        {this.renderSwipey(recipes[this.state.recipe],this.state.recipe)}
-        </GestureRecognizer>
 
-          <Button block style={styles.mb} onPress={() => this.replaceAt('recipe')}>Oversikt</Button>
-      </Content>
+        <Content padder>
+        <Card style={{padding:10}}>
+          {this.renderItems()}
+          </Card>
+          </Content>
       </Container>
-);
+    );
   }
 }
 
@@ -138,4 +103,4 @@ const mapStateToProps = state => ({
   navigation: state.cardNavigation,
 });
 
-export default connect(mapStateToProps, bindAction)(Chese);
+export default connect(mapStateToProps, bindAction)(Cheese);

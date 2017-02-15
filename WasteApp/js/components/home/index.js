@@ -29,7 +29,7 @@ render() {
         </Header>
 
         <Content padder>
-        <Image source={Images.frontpage} style={styles.imageContainer}>
+        <Image source={Images.biglogonew} style={styles.imageContainer}>
           
         </Image>
       </Content>

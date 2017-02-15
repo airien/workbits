@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Title, Content, Button, Icon , View, Text, List, ListItem} from 'native-base';
+import { Container, Header, Title, Content, Button, Icon , View, Text, List, ListItem, Image} from 'native-base';
 
 import { openDrawer } from '../../actions/drawer';
 import styles from './styles';
 import realm from './realm';
 
+import Images from '../../../assets/images';
 var menuItems = require('../../data/sidebar.json');
 const {
   replaceAt,
 } = actions;
 
-class NHList extends Component {
+class Dairy extends Component {
   
    constructor(props){
     super(props);
@@ -63,6 +64,11 @@ class NHList extends Component {
       key: React.PropTypes.string,
     }),
   }
+
+
+  replaceAt(route) {
+    this.props.replaceAt('dairy', { key: route }, this.props.navigation.key);
+  }
  listOfItems(ingr) {
     return ingr.map((data, index) => {
       return (
@@ -70,16 +76,16 @@ class NHList extends Component {
         <List>
               <ListItem style={styles.listItem}>
               <Text style={styles.listText}  key={index} > {data.type.toUpperCase()}  {data.date}</Text>
+
               <Button style={styles.ikonknapp} onPress={() => this.delete(data.id)}><Icon name="ios-trash" style={styles.icon} /></Button>
+
+ 
               </ListItem>
           </List>
       </View>
       )
     })}
-  replaceAt(route) {
-    this.props.replaceAt('dairy', { key: route }, this.props.navigation.key);
-  }
-
+//             <Button style={styles.ikonknapp} onPress={() => this.delete(data.id)}><Image  style={{ resizeMode: 'contain', height:25, width: 25, padding:20 }} source={ Images.checkmarkgreen} /></Button>
   render() {
     return (
       <Container style={styles.container}>
@@ -90,24 +96,23 @@ class NHList extends Component {
           </Button>
         </Header>
         <Content padder>
-
-          <Button block style={styles.mb} onPress={() => this.replaceAt('newitem')}>{menuItems.newitem}</Button>
-
-      <View>
-      
-     {this.listOfItems(this.state.dairy)}
-      </View>
-      
-    <Text>  {this.state.err}</Text>
-
-
-
-          
+     
+          <Button block style={styles.mb} onPress={() => this.replaceAt('newitem')}>{menuItems.newItem}</Button>
+        <Text>Her kan du registrere melken du har kjøpt. Du kan også angi om du har brukt opp melken. Neste gang du er nødt til å kjøpe melk, kan du sjekke i listen og se hvor mye melk du har. Appen vil også gi deg en påminnelse om at du har en melk som holder på å gå ut på dato, så du husker å drikke den, eller kan bruke den i matlaging eller baking.</Text>
+     <View style={{marginTop:20}}>
+      {this.listOfItems(this.state.dairy)}
+         </View>
         </Content>
       </Container>
     );
   }
 }
+
+/**       <Button block style={styles.mb} onPress={() => this.replaceAt('newitem')}>{menuItems.newitem}</Button>
+      <View>
+     {this.listOfItems(this.state.dairy)}
+        </View>
+          <Text>  {this.state.err}</Text> */
 //<Button block style={styles.mb} onPress={() => this.clearDb()}>Clear</Button>
 function bindAction(dispatch) {
   return {
@@ -120,5 +125,5 @@ const mapStateToProps = state => ({
   navigation: state.cardNavigation,
 });
 
-export default connect(mapStateToProps, bindAction)(NHList);
+export default connect(mapStateToProps, bindAction)(Dairy);
 

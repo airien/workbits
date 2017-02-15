@@ -35,10 +35,12 @@ class SideBar extends Component {
         theme={sidebarTheme}
         style={styles.sidebar}
       >
+      <View style={styles.imageContainer}>
         <Image source={Images.slidertop} style={styles.drawerCover}>
-
+ 
         </Image>
-        <List style={{
+      </View>
+       <List style={{
     borderTopColor: "#667755",
     borderTopWidth: 3,paddingTop:20}}>
 

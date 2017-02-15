@@ -8,6 +8,7 @@ import { openDrawer } from '../../actions/drawer';
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
 
+import Hyperlink from 'react-native-hyperlink'
 var whatsinit = require('../../data/whatsinit.json');
 var menuItems = require('../../data/sidebar.json');
 class WhatIsInItForMe extends Component {
@@ -42,6 +43,15 @@ renderItem(item, index)
       <Image key={'image_'+index} style={{ resizeMode: 'cover', width: null, height:150 }} source={ { uri: item.value}} />
     
       );
+  }
+  else if(item.type === "link"){
+    return (<Hyperlink onPress={ url => goToUrl(url) }>
+    <Text style={ { fontSize: 15 } }>{item.value}</Text>
+  </Hyperlink>);
+  }
+  else if(item.type === "point")
+  {
+    return(<Text>{'\u2022 {item.value}'}</Text>);
   }
   else {
     return (<Text key={'text_'+index} style={{ fontSize:12, marginTop:10, marginBottom:10}}>{item.value}</Text>);
