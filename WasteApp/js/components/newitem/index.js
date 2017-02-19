@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
-import { Container, Header, Title, Content, Button, Icon , View, Text, List, ListItem, Image} from 'native-base';
-
+import { Container, Header, Title, Content, Button , View, Text, List, ListItem, Image, Icon} from 'native-base';
+//import Icon from 'react-native-vector-icons/FontAwesome';
 import { openDrawer } from '../../actions/drawer';
 import styles from './styles';
 import realm from './realm';
@@ -77,7 +77,11 @@ class Dairy extends Component {
               <ListItem style={styles.listItem}>
               <Text style={styles.listText}  key={index} > {data.type.toUpperCase()}  {data.date}</Text>
 
-              <Button style={styles.ikonknapp} onPress={() => this.delete(data.id)}><Icon name="ios-trash" style={styles.icon} /></Button>
+              <Button style={styles.ikonknapp} onPress={() => this.delete(data.id)}>
+              
+              <Icon name="ios-checkmark" style={styles.icon} />
+              
+              </Button>
 
  
               </ListItem>

@@ -97,7 +97,7 @@ renderSwipey(item, index)
 
    const config = {
       velocityThreshold: 0.3,
-      directionalOffsetThreshold: 150
+      directionalOffsetThreshold: 200
     };
 return (
       <Container theme={myTheme} style={styles.container}>

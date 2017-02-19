@@ -249,8 +249,11 @@ init(){
       selectedValue={this.state.type}
       onValueChange={this.onValueChange.bind(this)}>
       <Item label="Velg type..." value="" />
-      <Item label="Ost" value="ost" />
       <Item label="Melk" value="melk" />
+      <Item label="Yoghurt" value="yoghurt" />
+      <Item label="Fløte" value="fløte" />
+      <Item label="Rømme" value="rømme" />
+      <Item label="Ost" value="ost" />
       <Item label="Annet" value="annet" />
       </Picker>
 
@@ -272,7 +275,7 @@ init(){
 
     // (required) Called when a remote or local notification is opened or received
     onNotification: function(notification) {
-        alert("notification: "+ JSON.stringify(notification) )
+        //alert("notification: "+ JSON.stringify(notification) )
       //  dispatch(replaceAt("newitem", { key: "milk"}, "newitem"));//{ key: route }, this.props.navigation.key
         replaceAt('newitem', { key: notification.type.toLowerCase() }, "newitem");
         console.log( 'NOTIFICATION:', JSON.stringify(notification) );

@@ -1,7 +1,2 @@
 {
-    "texts":[{"type":"header", "value":"Hvor mye kan due spare hvis du kaster mindre mat?"}, {"type":"normal", "value":"Vil du vite hvor mye du kan spare hvis du kaster mindre mat, både med tanke på personlig økonomi og miljøet? Kalkulatoren nedenfor hjelper deg å se hvilke gevinster du kan få av å ikke kaste mat. Fyll ut hvor mange ganger i måneden du er nødt å kaste disse produktene (melk, yoghurt, fløte..). Kalkulatoren gjør resten av jobben!*"},
-    {"type":"calculator","value":"calculator"},
-    {"type":"normal", "value":"Hvis du unngår å kaste dette produktet så ofte, kan du spare:"}, {"type":"inputverdi"}, {"type":"normal", "value":"kroner i året"}, {"type":"normal", "value":"Og bidra til å forhindre"}, {"type":"image", "value":"greenleaf"}, {"type":"inputverdi"}, {"type":"normal", "value":"kg CO2 ekv.  og "}, {"type":"image", "value":"waterdrop"}, {"type":"normal", "value":"liter vann i året"}, {"type":"normal", "value":"Det tilsvarer å kjøre"},{"type":"inputverdi"},  {"type":"normal", "value":"kilometer med bil."},
-    {"type":"normal", "value":"*Standard pakkestørrelse for produktet. Med antagelse om at å av produktet blir kastet. Kilder: University of Wisconsin; Institution of Mechanical Engineers; Sorgåven, E., & zilgen, M.; shrinkthatfootprint.com"}
-]
-}
+    "texts":[{"type":"header", "value":"Hvor mye kan due spare hvis du kaster mindre mat?"}, {"type":"normal", "value":"Vil du vite hvor mye du kan spare hvis du kaster mindre mat, både med tanke på personlig økonomi og miljøet? Kalkulatoren nedenfor hjelper deg å se hvilke gevinster du kan få av å ikke kaste mat. Fyll ut hvor mange ganger i måneden du er nødt å kaste disse produktene (melk, yoghurt, fløte..). Kalkulatoren gjør resten av jobben!*"}]}

@@ -70,7 +70,7 @@ module.exports = StyleSheet.create({
   paddingBottom:5
   },
   ikonknapp :{
-    backgroundColor:'#ff6666',
+    backgroundColor:'#8cc739',
     width: 30,
     height:30,
     paddingTop: (Platform.OS === 'android') ? 25 : 5
