@@ -19,7 +19,13 @@ const images = {
 	greenleaf: require('./img/greenleaf.png'),
 	waterdrop: require('./img/waterdrop.png'),
 	whatwewaste: require('./img/whatwewaste.png'),
-	foodwastepyramid: require('./img/foodwastepyramid.png')
+	foodwastepyramid: require('./img/foodwastepyramid.png'),
+	breadrecipe: require('./img/breadrecipe.jpg'),
+	croutons: require('./img/croutons.jpg'),
+	kalkun: require('./img/kalkun.jpg'),
+	minestrone: require('./img/minestrone.jpg'),
+	smoothie: require('./img/smoothie.jpg'),
+	waffles: require('./img/waffles.jpg')
 };
 
 

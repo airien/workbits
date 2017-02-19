@@ -7,11 +7,11 @@ var menuItems = require('../../data/sidebar.json');
 import myTheme from '../../themes/base-theme';
 import { openDrawer } from '../../actions/drawer';
 var recipes = require('../../data/otherrecipe.json');
-const logo = require('../../../img/cowlogo.png');
-const cardImage = require('../../../img/Milk-Tart2.jpg');
+var recipeItems = require('../../data/menurecipes.json');
 import styles from './styles';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
-
+import Images from '../../../assets/images';
+import AndroidBackButton from "react-native-android-back-button"
 
 const {
   replaceAt,
@@ -77,11 +77,11 @@ renderSwipey(item, index)
 {
         return ( <Card key={index} style={{ elevation: 3 }}>
                                 <CardItem>
-                                    <Thumbnail source={{ uri: item.image}} />
+                                    <Thumbnail source={ Images[item.image]} />
                                     <Text style={{fontWeight:'bold', fontSize:18, marginTop:10, marginBottom:10}}>{item.name}</Text>
                                 </CardItem>
                                 <CardItem>
-                                <Image style={{ resizeMode: 'cover', width: null, height:200 }} source={ { uri: item.image}} />
+                                <Image style={{ resizeMode: 'cover', width: null, height:200 }} source={ Images[item.image]} />
                                  
                                 </CardItem>
                                 <CardItem>
@@ -101,8 +101,11 @@ renderSwipey(item, index)
     };
 return (
       <Container theme={myTheme} style={styles.container}>
+ <AndroidBackButton
+          onPress={() => {this.replaceAt("recipe"); }}
+        />
        <Header>
-          <Title>{menuItems.recipe}</Title>
+          <Title>{recipeItems.oppskrift}</Title>
           <Button transparent onPress={this.props.openDrawer}>
             <Icon name="ios-menu" />
           </Button>

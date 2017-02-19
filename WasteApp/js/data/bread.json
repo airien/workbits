@@ -1,12 +1,14 @@
-{"texts":[{"type":"header", "value":"Tips for å hindre at brødet blir gammelt"},
-{"type":"normal", "value":"Frys ned halve brød og ta opp når det begynner å bli tomt. Dersom du bruker brødskjæremaskinen på butikken er det lettere å ta opp kun det antallet skiver du trenger. Dersom du legger brødet i kjøleskapet forhindrer du mugg, men brødet blir raskere tørt. Dette skyldes en prosess som kalles retrogradering, som gjør at brødet tørker ut raskere."},
-{"type":"normal", "value":"God hygiene er viktig for å hindre mugg. Brødet mugner når det kommer i kontakt med muggsporer (http://brodogkorn.no/fakta/slik-oppbevarer-du-brod-best/ ). Dersom brødet har mugg bør du ikke spise det."},
-{"type":"header", "value":"Hvordan vet jeg om det kan spises?"},
-{"type":"normal", "value":"Den beste måten å avgjøre om et brød er spiselig er ved å se om det er mugg, eller å smake på det. Hvis det ikke er mugg er det trygt å spise."},
+{"texts":[
+{"type":"header", "value":"Tips for å hindre at brødet blir gammelt"},
+{"type":"normal", "value":"Frys ned halve brød og ta opp når det begynner å bli tomt. Dersom du bruker brødskjæremaskinen på butikken er det lettere å ta opp kun det antallet skiver du trenger."},
+{"type":"normal", "value":"Dersom du legger brødet i kjøleskapet forhindrer du mugg, men brødet blir raskere tørt. Dette skyldes en prosess som kalles retrogradering, som gjør at brødet tørker ut raskere."},
+{"type":"link", "value":"God hygiene er viktig for å hindre mugg. Brødet mugner når det kommer i kontakt med muggsporer (http://brodogkorn.no/fakta/slik-oppbevarer-du-brod-best/ ). Dersom brødet har mugg bør du ikke spise det."},
+{"type":"header", "value":"Hvordan vet jeg om det kan spises?"},{"type":"normal", "value":"Den beste måten å avgjøre om et brød er spiselig er ved å se om det er mugg, eller å smake på det. Hvis det ikke er mugg er det trygt å spise."},
 {"type":"header", "value":"Hva kan jeg bruke tørt brød til?"},
 {"type":"normal", "value":"Bruschetta: Kutt opp litt tomat og bland med olivenolje, hvitløk og basilikum. Ha på oppskjært brød eller baguett og stek i ovnen."},
-{"type":"link", "value": "Ostesmørbrod: https://meny.no/oppskrifter/Bakst/Brod/Tex-mex-ostesmorbrod-med-Ridder-tacokjottdeig-tomatsalsa-og-avokado/ "},
+{"type":"link", "value":"Ostesmørbrod: https://meny.no/oppskrifter/Bakst/Brod/Tex-mex-ostesmorbrod-med-Ridder-tacokjottdeig-tomatsalsa-og-avokado/ "},
 {"type":"normal", "value":"Krutonger"},
 {"type":"normal", "value":"Italian bread salad"},
-{"type":"link","value":"Se ogsa: https://www.nrk.no/livsstil/ti-ting-du-kan-gjore-med-tort-brod-1.12084978 "}
-]}
+{"type":"link", "value":"Se ogsa: https://www.nrk.no/livsstil/ti-ting-du-kan-gjore-med-tort-brod-1.12084978 "}
+]
+}

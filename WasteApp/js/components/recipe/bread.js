@@ -7,8 +7,12 @@ var menuItems = require('../../data/sidebar.json');
 import myTheme from '../../themes/base-theme';
 import { openDrawer } from '../../actions/drawer';
 var recipes = require('../../data/bread.json');
+var recipeItems = require('../../data/menurecipes.json');
 import styles from './styles';
 import Hyperlink from 'react-native-hyperlink'
+import Images from '../../../assets/images';
+import DynamicView from '../dynamicview/';
+import AndroidBackButton from "react-native-android-back-button"
 
 const {
   replaceAt,
@@ -21,6 +25,7 @@ class Bread extends Component {
       recipe: 0
     };
   }
+  
   static propTypes = {
     openDrawer: React.PropTypes.func,
     replaceAt: React.PropTypes.func,
@@ -33,55 +38,23 @@ class Bread extends Component {
     this.props.replaceAt('bread', { key: route }, this.props.navigation.key);
   }
 
-renderItems()
-{
-   return recipes.texts.map((item,index)=>
-  {        return  this.renderItem(item, index);
-  });
-}
-renderItem(item, index)
-{
-  if(item.type === "header")
-  {
-    return (<Text key={'text_'+index} style={{fontWeight:'bold', fontSize:18, marginTop:10, marginBottom:10}}>{item.value}</Text>);
-  }
-  else if(item.type==="icon")
-  {
-    return <Icon key={'text_'+index} name={item.value} style={{ width: 45, height: 45, justifyContent: 'center' }} />;
-  }
-   else if(item.type==="image")
-  {    
-    return (
-      <Image key={'image_'+index} style={{ resizeMode: 'cover', width: null, height:150 }} source={ { uri: item.value}} />);
-  }
-
-  else if(item.type === "link"){
-    return (<Hyperlink  key={'link'+index} onPress={ url => goToUrl(url) } linkStyle={ { color: '#2980b9', fontSize: 13 } }>
-    <Text style={ { fontSize: 12 } }>{item.value}</Text>
-  </Hyperlink>);
-  }
-  else if(item.type === "point")
-  {
-    return(<Text  key={'point'+index}>{'\u2022 {item.value}'}</Text>);
-  }
-}
 
 
   render() {
     return (
       <Container theme={myTheme} style={styles.container}>
-
+ <AndroidBackButton
+          onPress={() => {this.replaceAt("recipe"); }}
+        />
         <Header>
-          <Title>{menuItems.whatisinitforme}</Title>
+          <Title>{recipeItems.bread}</Title>
           <Button transparent onPress={this.props.openDrawer}>
             <Icon name="ios-menu" />
           </Button>
         </Header>
 
         <Content padder>
-        <Card style={{padding:10}}>
-          {this.renderItems()}
-          </Card>
+          <DynamicView data={recipes.texts} name="bread" />
           </Content>
       </Container>
     );

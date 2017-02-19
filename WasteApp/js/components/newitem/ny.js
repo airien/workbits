@@ -11,7 +11,6 @@ import styles from './styles';
 import schema from './realm';
 import AnylineOCR from 'anyline-ocr-react-native-module';
 import DatePicker from './datepicker';
-import Result from './Result';
 import config from './config';
 import {
   AppRegistry,
