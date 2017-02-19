@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import App from './App';
 import configureStore from './configureStore';
-
 function setup():React.Component {
   class Root extends Component {
+
 
     constructor() {
       super();
@@ -13,6 +13,7 @@ function setup():React.Component {
         isLoading: false,
         store: configureStore(() => this.setState({ isLoading: false })),
       };
+
     }
 
     render() {
@@ -28,3 +29,4 @@ function setup():React.Component {
 }
 
 export default setup;
+
