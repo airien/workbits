@@ -9,7 +9,6 @@ import  {
 import { openDrawer } from '../../actions/drawer';
 import styles from './styles';
 import schema from './realm';
-import AnylineOCR from 'anyline-ocr-react-native-module';
 import DatePicker from './datepicker';
 import config from './config';
 import {
@@ -189,14 +188,6 @@ init(){
             day,month,year, type,date
         } = this.state;
 
-        const platformText = (Platform.OS === 'android') ?
-            (<Button style={styles.knapp} onPress={() => {
-                this.checkCameraPermissionAndOpen();
-                alert("what=");
-            }}><Icon name="ios-camera-outline" style={styles.icon} />  </Button>) :
-            (<Button style={styles.knapp}  onPress={this.openOCR}><Icon name="ios-camera-outline" style={styles.icon} /></Button>);
-            
-     
         return (
       <Container theme={myTheme} style={styles.container}>
         <Header>
@@ -209,9 +200,6 @@ init(){
 
         <Content padder>
 
-      <View style={styles.knappContainer}>
-       {platformText}
-      </View>
       <View style={{marginTop:15, marginBottom:15}}>
 
       </View>
@@ -219,7 +207,6 @@ init(){
 
       <View style={styles.knappContainer}>
         <DatePicker
-        style={{width: 200}}
         date={this.state.date}
         mode="date"
         placeholder="Velg dato"

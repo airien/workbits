@@ -78,19 +78,19 @@ calculateResultWater(times,type)
   var vann = 0;
   switch(type) {
     case "melk":
-    vann = 6120;
+    vann = 6120*times;
     break;
     case "yoghurt":
-    vann = 8568;
+    vann = 8568*times;
     break;
     case "fløte":
-    vann = 12852;
+    vann = 12852*times;
     break;
     case "rømme":
-    vann = 5141;
+    vann = 5141*times;
     break;
     case "ost":
-    vann = 4767;
+    vann = 4767*times;
     break;
   }
   return vann;
@@ -126,19 +126,19 @@ calculateResultcar(times,type)
   var bil = 0;
   switch(type) {
     case "melk":
-    bil = 36;
+    bil = 36*times;
     break;
     case "yoghurt":
-    bil = 30;
+    bil = 30*times;
     break;
     case "fløte":
-    bil = 72;
+    bil = 72*times;
     break;
     case "rømme":
-    bil = 18;
+    bil = 18*times;
     break;
     case "ost":
-    bil = 66;
+    bil = 66*times;
     break;
   }
   return bil;
@@ -198,7 +198,7 @@ calculateResultcar(times,type)
       mode="dropdown"
       selectedValue={this.state.times}
       onValueChange={this.onTimesValueChange.bind(this)}>
-      <Item label="Velg antall ganger..." value="" />
+      <Item label="Velg antall ganger i måneden..." value="" />
       <Item label="1" value="1" />
       <Item label="2" value="2" />
       <Item label="3" value="3" />
@@ -206,6 +206,7 @@ calculateResultcar(times,type)
       <Item label="5" value="5" />
       </Picker>
       {this.renderResultCost()}
+      <Text>og bidra til å forhindre </Text>
       {this.renderResultCo2Water()}
       {this.renderResultCar()}
       <Text style={{ fontSize:10}}>*Standard pakkestørrelse for produktet. Med antagelse om at ½ av produktet blir kastet.</Text>
@@ -228,7 +229,7 @@ calculateResultcar(times,type)
       return( 
         <CardItem>
         <Thumbnail source={ Images.greenleaf} />
-        <Text style={{ fontSize:12}}>og bidra til å forhindre {this.state.resultco2} kg C02 ekv. og</Text>
+        <Text style={{ fontSize:12}}>{this.state.resultco2} kg C02 ekv. og</Text>
         <Thumbnail source={ Images.waterdrop} />
         <Text style={{ fontSize:12}}> {this.state.resultWater} liter vann i året</Text>
         </CardItem> );
@@ -237,7 +238,7 @@ calculateResultcar(times,type)
         return (
           <CardItem>
         <Thumbnail source={ Images.greenleaf} />
-        <Text style={{ fontSize:12}}>og bidra til å forhindre ... kg C02 ekv. og</Text>
+        <Text style={{ fontSize:12}}> ... kg C02 ekv. og</Text>
         <Thumbnail source={ Images.waterdrop} />
         <Text style={{ fontSize:12}}> ... liter vann i året</Text>
         </CardItem> );

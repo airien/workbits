@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image,View, ListView } from 'react-native';
+import { Image,View, ListView, BackAndroid } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Thumbnail, DeckSwiper } from 'native-base';
@@ -12,25 +12,33 @@ import styles from './styles';
 import Hyperlink from 'react-native-hyperlink'
 import Images from '../../../assets/images';
 import DynamicView from '../dynamicview/';
-import AndroidBackButton from "react-native-android-back-button"
 
 const {
   replaceAt,
 } = actions;
 
 class FruitVeg extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      recipe: 0
-    };
-  }
   static propTypes = {
     openDrawer: React.PropTypes.func,
     replaceAt: React.PropTypes.func,
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
+  }
+
+  componentDidMount() {
+    var self = this;
+    BackAndroid.addEventListener('hardwareBackPress', () => {
+    self.replaceAt("recipe");
+      return true;
+    });
+  }
+
+  componentWillUnmount() {
+    BackAndroid.removeEventListener('hardwareBackPress', () => {
+    self.replaceAt("recipe");
+      return true;
+    });
   }
 
   replaceAt(route) {
@@ -40,10 +48,6 @@ class FruitVeg extends Component {
   render() {
     return (
       <Container theme={myTheme} style={styles.container}>
- <AndroidBackButton
-          onPress={() => {this.replaceAt("recipe"); }}
-        />
-
         <Header>
           <Title>{recipeItems.fruitveg}</Title>
           <Button transparent onPress={this.props.openDrawer}>

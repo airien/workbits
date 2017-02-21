@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image,View, ListView } from 'react-native';
+import { Image,View, ListView,BackAndroid } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Thumbnail, DeckSwiper } from 'native-base';
@@ -31,6 +31,20 @@ class Cheese extends Component {
     navigation: React.PropTypes.shape({
       key: React.PropTypes.string,
     }),
+  }
+  componentDidMount() {
+    var self = this;
+    BackAndroid.addEventListener('hardwareBackPress', () => {
+    self.replaceAt("recipe");
+      return true;
+    });
+  }
+
+  componentWillUnmount() {
+    BackAndroid.removeEventListener('hardwareBackPress', () => {
+    self.replaceAt("recipe");
+      return true;
+    });
   }
 
   replaceAt(route) {

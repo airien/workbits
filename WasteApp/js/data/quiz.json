@@ -57,7 +57,7 @@
 "images":["quiz6"],
     "alternatives" : [
         {"key":0, "type": "text", "answer":"Fryse den"},
-        {"key":1, "type": "text", "answer":"Kaste den i søpla/Gi den til søppelkassen"},
+        {"key":1, "type": "text", "answer":"Kaste den i søpla"},
         {"key":2, "type": "text", "answer":"Bruke den i pasta"},
         {"key":3, "type": "text", "answer":"Bruke den i vaffelrøre"}
         ],

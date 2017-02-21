@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image,View, ListView } from 'react-native';
+import { Image,View, ListView ,BackAndroid} from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Thumbnail, DeckSwiper } from 'native-base';
@@ -20,8 +20,11 @@ const {
 class Other extends Component {
   constructor(props) {
     super(props);
+
+    if(!props.recipe)
+      props.recipe = 0;
     this.state = {
-      recipe: 0
+      recipe: props.recipe
     };
   }
   static propTypes = {
@@ -31,7 +34,20 @@ class Other extends Component {
       key: React.PropTypes.string,
     }),
   }
+  componentDidMount() {
+    var self = this;
+    BackAndroid.addEventListener('hardwareBackPress', () => {
+    self.replaceAt("recipe");
+      return true;
+    });
+  }
 
+  componentWillUnmount() {
+    BackAndroid.removeEventListener('hardwareBackPress', () => {
+    self.replaceAt("recipe");
+      return true;
+    });
+  }
   next()
   {
     var s;
