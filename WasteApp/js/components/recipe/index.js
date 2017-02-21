@@ -29,24 +29,7 @@ class Recipe extends Component {
     }),
   }
 
-  next()
-  {
-    var s;
-    if(this.state.recipe=== recipes.length-1)
-      s = 0;
-    else 
-      s = this.state.recipe+1;
-       this.setState({recipe :s});
-  }
-  previous(){
-    var s;
-     if(this.state.recipe === 0)
-      s= recipes.length-1;
-    else 
-      s = this.state.recipe-1;
 
-       this.setState({recipe :s});
-  }
 
   replaceAt(route) {
     this.props.replaceAt('recipe', { key: route }, this.props.navigation.key);

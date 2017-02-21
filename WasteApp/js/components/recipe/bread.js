@@ -26,20 +26,6 @@ class Bread extends Component {
     };
   }
 
-  componentDidMount() {
-    var self = this;
-    BackAndroid.addEventListener('hardwareBackPress', () => {
-    self.replaceAt("recipe");
-      return true;
-    });
-  }
-
-  componentWillUnmount() {
-    BackAndroid.removeEventListener('hardwareBackPress', () => {
-    self.replaceAt("recipe");
-      return true;
-    });
-  }
   static propTypes = {
     openDrawer: React.PropTypes.func,
     replaceAt: React.PropTypes.func,

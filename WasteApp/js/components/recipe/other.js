@@ -24,7 +24,7 @@ class Other extends Component {
     if(!props.recipe)
       props.recipe = 0;
     this.state = {
-      recipe: props.recipe
+      recipe: parseInt(props.recipe)
     };
   }
   static propTypes = {
@@ -34,20 +34,7 @@ class Other extends Component {
       key: React.PropTypes.string,
     }),
   }
-  componentDidMount() {
-    var self = this;
-    BackAndroid.addEventListener('hardwareBackPress', () => {
-    self.replaceAt("recipe");
-      return true;
-    });
-  }
 
-  componentWillUnmount() {
-    BackAndroid.removeEventListener('hardwareBackPress', () => {
-    self.replaceAt("recipe");
-      return true;
-    });
-  }
   next()
   {
     var s;
@@ -89,15 +76,33 @@ renderSwipeys(index)
   })
 }
 
+renderThumb(item) {
+  if((typeof item !== 'undefined')&& (typeof item.image !== 'undefined'))
+  {
+    return <Thumbnail source={ Images[item.image]} />
+  }  
+    
+}
+renderImg(item) {
+  if((typeof item !== 'undefined')&& (typeof item.image !== 'undefined'))
+   {
+     return  <Image style={{ resizeMode: 'cover', width: null, height:200 }} source={ Images[item.image]} />
+   }
+}
 renderSwipey(item, index)
 {
+  if(typeof item === 'undefined')
+    return (<Text>Item is null: {index}</Text>);
+        
+        
         return ( <Card key={index} style={{ elevation: 3 }}>
                                 <CardItem>
-                                    <Thumbnail source={ Images[item.image]} />
+                              {this.renderThumb(item)}
+                          
                                     <Text style={{fontWeight:'bold', fontSize:18, marginTop:10, marginBottom:10}}>{item.name}</Text>
                                 </CardItem>
                                 <CardItem>
-                                <Image style={{ resizeMode: 'cover', width: null, height:200 }} source={ Images[item.image]} />
+                                {this.renderImg(item)}
                                  
                                 </CardItem>
                                 <CardItem>

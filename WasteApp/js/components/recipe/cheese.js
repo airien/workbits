@@ -32,20 +32,6 @@ class Cheese extends Component {
       key: React.PropTypes.string,
     }),
   }
-  componentDidMount() {
-    var self = this;
-    BackAndroid.addEventListener('hardwareBackPress', () => {
-    self.replaceAt("recipe");
-      return true;
-    });
-  }
-
-  componentWillUnmount() {
-    BackAndroid.removeEventListener('hardwareBackPress', () => {
-    self.replaceAt("recipe");
-      return true;
-    });
-  }
 
   replaceAt(route) {
     this.props.replaceAt('cheese', { key: route }, this.props.navigation.key);

@@ -57,22 +57,26 @@ class AppNavigator extends Component {
     BackAndroid.addEventListener('hardwareBackPress', () => {
       const routes = this.props.navigation.routes;
       
-    if(routes[routes.length - 1].key === "bread" 
+    if(routes.length > 0 
+    &&(routes[routes.length - 1].key === "bread" 
     || routes[routes.length - 1].key === "fruitveg"
     || routes[routes.length - 1].key === "meat"
     || routes[routes.length - 1].key === "milk"
     || routes[routes.length - 1].key === "other"
     || routes[routes.length - 1].key === "sourmilk"
-    || routes[routes.length - 1].key === "cheese")
+    || routes[routes.length - 1].key === "cheese"))
     {
 
+
     //  this.props.popRoute(this.props.nacigation.key);
+      //this.props.popRoute(this.props.navigation.key);
+       
       this.replaceAt(routes[routes.length - 1].key,"recipe");
       return true;
     }
     
 
-      if (routes[routes.length - 1].key === 'home') {
+      if (routes[routes.length - 1].key === 'home' || routes.length <= 0 ) {
         return false;
       }
 

@@ -26,20 +26,6 @@ class FruitVeg extends Component {
     }),
   }
 
-  componentDidMount() {
-    var self = this;
-    BackAndroid.addEventListener('hardwareBackPress', () => {
-    self.replaceAt("recipe");
-      return true;
-    });
-  }
-
-  componentWillUnmount() {
-    BackAndroid.removeEventListener('hardwareBackPress', () => {
-    self.replaceAt("recipe");
-      return true;
-    });
-  }
 
   replaceAt(route) {
     this.props.replaceAt('fruitveg', { key: route }, this.props.navigation.key);
