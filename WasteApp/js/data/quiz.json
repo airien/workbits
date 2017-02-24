@@ -1,7 +1,7 @@
 {
 "start":"Mange er usikre på hva best før-datoen egentlig betyr. Kan produktet fortsatt spises etter denne datoen? Er det kvaliteten eller tryggheten til produktet som blir redusert? Test dine kunnskaper! Trykk Start for å ta quizen.",    
     "questions":[{
-    "question" : "1) Hvis dato i dag er 17 Februar, hvilken av disse to produktene kan være fortsatt greit å spise?",
+    "question" : "1) Hvis dato i dag er 17 Februar, hvilken av disse to produktene kan det fortsatt være greit å spise?",
     "images":[],
     "alternatives" : [
         {"key":0, "type": "image", "answer":"quiz1pic1"},
@@ -36,9 +36,9 @@
 { "question" : "4) Hva er riktig kjøleskaptemperatur?",
 "images":["quiz4"],
     "alternatives" : [
-        {"key":0, "type": "text", "answer":"Litt over 4 grader"},
-        {"key":1, "type": "text", "answer":"Mellom 2 og 4 grader"},
-        {"key":2, "type": "text", "answer":"Under 2 grader"}
+        {"key":0, "type": "text", "answer":"Litt over 4 °C"},
+        {"key":1, "type": "text", "answer":"Mellom 2 og 4 °C"},
+        {"key":2, "type": "text", "answer":"Under 2 °C"}
         ],
     "selected":null,
     "answer" : 1

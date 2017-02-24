@@ -1,4 +1,4 @@
-package com.foodsaver;
+package com.nmbu.foodsaver;
 
 import com.facebook.react.ReactActivity;
 

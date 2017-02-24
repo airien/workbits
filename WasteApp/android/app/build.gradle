@@ -87,7 +87,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.foodsaver"
+        applicationId "com.nmbu.foodsaver"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1

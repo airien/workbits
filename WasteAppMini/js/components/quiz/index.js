@@ -186,7 +186,7 @@ previous(current){
        return( <Container theme={myTheme} style={styles.container}>
 
               <Header>
-                <Title>Header</Title>
+                <Title>{menuItems.quiz}</Title>
                 <Button transparent onPress={this.props.openDrawer}>
                   <Icon name="ios-menu" />
                 </Button>
