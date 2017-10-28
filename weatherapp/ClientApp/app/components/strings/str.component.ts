@@ -1,27 +1,22 @@
 import { Component, Inject } from '@angular/core';
-import { Http } from '@angular/http';
+import { StringsService } from './strings.service';
 
 @Component({
     selector: 'strings',
     template: require('./str.component.html')
 })
 export class StringsComponent {
- 
-    public outstring:String;
-   
-    constructor(private http: Http, @Inject('BASE_URL') private baseUrl : string) {
+
+    public outstring: String;
+    constructor(private service: StringsService) {
         this.setCurrentStringValue();
     }
- 
-    public reverseString(str: String) {
-        this.http.get(this.baseUrl + 'api/Strings/' +str).subscribe(result => {
-            this.outstring = result.json() as String;
-       }, error => console.log(error));
-    } 
-    
+
+    public reverseString(str: string) {
+        this.service.reverse(str).subscribe(res => this.outstring = res as String );
+    }
+
     private setCurrentStringValue() {
-        this.http.get(this.baseUrl + 'api/Strings/').subscribe(result => {
-            this.outstring = result.json() as String;
-       }, error => console.log(error));
+        this.service.get().subscribe(res =>this.outstring = res as String );
     }
 }

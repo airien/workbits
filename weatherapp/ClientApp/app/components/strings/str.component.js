@@ -7,28 +7,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-import { Component, Inject } from '@angular/core';
-import { Http } from '@angular/http';
+import { Component } from '@angular/core';
+import { StringsService } from './strings.service';
 var StringsComponent = (function () {
-    function StringsComponent(http, baseUrl) {
-        this.http = http;
-        this.baseUrl = baseUrl;
+    function StringsComponent(service) {
+        this.service = service;
         this.setCurrentStringValue();
     }
     StringsComponent.prototype.reverseString = function (str) {
         var _this = this;
-        this.http.get(this.baseUrl + 'api/Strings/' + str).subscribe(function (result) {
-            _this.outstring = result.json();
-        }, function (error) { return console.log(error); });
+        this.service.reverse(str).subscribe(function (res) { return _this.outstring = res; });
     };
     StringsComponent.prototype.setCurrentStringValue = function () {
         var _this = this;
-        this.http.get(this.baseUrl + 'api/Strings/').subscribe(function (result) {
-            _this.outstring = result.json();
-        }, function (error) { return console.log(error); });
+        this.service.get().subscribe(function (res) { return _this.outstring = res; });
     };
     return StringsComponent;
 }());
@@ -37,8 +29,7 @@ StringsComponent = __decorate([
         selector: 'strings',
         template: require('./str.component.html')
     }),
-    __param(1, Inject('BASE_URL')),
-    __metadata("design:paramtypes", [Http, String])
+    __metadata("design:paramtypes", [StringsService])
 ], StringsComponent);
 export { StringsComponent };
 //# sourceMappingURL=str.component.js.map

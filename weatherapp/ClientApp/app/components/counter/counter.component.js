@@ -7,15 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-import { Component, Inject } from '@angular/core';
-import { Http } from '@angular/http';
+import { Component } from '@angular/core';
 var CounterComponent = (function () {
-    function CounterComponent(http, baseUrl) {
-        this.http = http;
-        this.baseUrl = baseUrl;
+    function CounterComponent() {
         this.counter = 0;
         this.setCurrentCounterValue();
     }
@@ -26,10 +20,7 @@ var CounterComponent = (function () {
         this.counter = 0;
     };
     CounterComponent.prototype.setCurrentCounterValue = function () {
-        var _this = this;
-        this.http.get(this.baseUrl + 'api/number/CurrentCounter').subscribe(function (result) {
-            _this.counter = result.json();
-        }, function (error) { return console.log(error); });
+        this.resetCounter();
     };
     return CounterComponent;
 }());
@@ -38,8 +29,7 @@ CounterComponent = __decorate([
         selector: 'counter',
         template: require('./counter.component.html')
     }),
-    __param(1, Inject('BASE_URL')),
-    __metadata("design:paramtypes", [Http, String])
+    __metadata("design:paramtypes", [])
 ], CounterComponent);
 export { CounterComponent };
 //# sourceMappingURL=counter.component.js.map

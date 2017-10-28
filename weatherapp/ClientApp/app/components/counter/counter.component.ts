@@ -8,7 +8,7 @@ import { Http } from '@angular/http';
 export class CounterComponent {
     public counter: number = 0
    
-    constructor(private http: Http, @Inject('BASE_URL') private baseUrl : string) {
+    constructor() {
         this.setCurrentCounterValue();
     }
 
@@ -21,8 +21,6 @@ export class CounterComponent {
     }
     
     private setCurrentCounterValue() {
-        this.http.get(this.baseUrl + 'api/number/CurrentCounter').subscribe(result => {
-            this.counter =  result.json() as number;
-       }, error => console.log(error));
+        this.resetCounter();
     }
 }

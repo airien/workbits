@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { StringsComponent } from './components/strings/str.component';
+import { StringsService } from './components/strings/strings.service';
 var AppModuleShared = (function () {
     function AppModuleShared() {
     }
@@ -41,7 +42,8 @@ AppModuleShared = __decorate([
                 { path: 'strings', component: StringsComponent },
                 { path: 'fetch-data', component: FetchDataComponent }
             ])
-        ]
+        ],
+        providers: [StringsService]
     })
 ], AppModuleShared);
 export { AppModuleShared };
