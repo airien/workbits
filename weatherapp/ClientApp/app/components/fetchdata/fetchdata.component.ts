@@ -11,6 +11,7 @@ export class FetchDataComponent {
         http.get(baseUrl + 'api/weather/WeatherForecasts').subscribe(result => {
             this.forecasts = result.json() as WeatherForecast[];
         }, error => console.error(error));
+        
     }
 }
 

@@ -1,19 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { Http } from '@angular/http';
 
 @Component({
     selector: 'counter',
-    templateUrl: './counter.component.html'
+    template: require('./counter.component.html')
 })
 export class CounterComponent {
-    public currentCount = 0;
-
-
+    public counter: number = 0
+   
+    constructor(private http: Http, @Inject('BASE_URL') private baseUrl : string) {
+        this.setCurrentCounterValue();
+    }
 
     public incrementCounter() {
-        this.currentCount++;
-    }    
-    
+        this.counter += 1;
+    } 
+
     public resetCounter() {
-        this.currentCount = 0;
+        this.counter = 0;
+    }
+    
+    private setCurrentCounterValue() {
+        this.http.get(this.baseUrl + 'api/number/CurrentCounter').subscribe(result => {
+            this.counter =  result.json() as number;
+       }, error => console.log(error));
     }
 }
