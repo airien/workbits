@@ -14,7 +14,8 @@ export class StringsService {
         return this.http.get(this.baseUrl + 'api/Strings/')
             .map((result) => result.json() as String);
   }
-  reverse(str: string) {
+    reverse(str: string) {
+      
       return this.http.get(this.baseUrl + 'api/Strings/'+str)
           .map((result) => result.json() as String);
   }

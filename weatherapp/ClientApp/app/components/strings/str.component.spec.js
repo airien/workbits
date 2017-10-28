@@ -42,7 +42,6 @@ describe('Strings component', function () {
         button.click();
         fixture.detectChanges();
         var text = fixture.nativeElement.querySelector('strong');
-        //  text.textContent = "voff";
         expect(text.textContent).toBe("");
     }));
 });

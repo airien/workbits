@@ -13,10 +13,10 @@ export class StringsComponent {
     }
 
     public reverseString(str: string) {
-        this.service.reverse(str).subscribe(res => this.outstring = res as String );
+        this.service.reverse(str).subscribe(res => this.outstring = res  );
     }
 
     private setCurrentStringValue() {
-        this.service.get().subscribe(res =>this.outstring = res as String );
+        this.service.get().subscribe(res =>this.outstring = res );
     }
 }

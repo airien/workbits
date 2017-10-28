@@ -63,7 +63,6 @@ describe('Strings component', () => {
             fixture.detectChanges();
 
             const text = fixture.nativeElement.querySelector('strong');
-          //  text.textContent = "voff";
             expect(text.textContent).toBe("");
             
     }));
