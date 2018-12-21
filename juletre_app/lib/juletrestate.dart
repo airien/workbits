@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:juletre_app/api.dart';
 import 'package:juletre_app/juletreside.dart';
-import 'package:juletre_app/post.dart';
+import 'package:juletre_app/quote.dart';
 
 class JuletreSideState extends State<JuletreSide> {
   String lysAv = "Slå på lys";
@@ -8,13 +9,14 @@ class JuletreSideState extends State<JuletreSide> {
 
   String motorAv = "Slå på motor";
   String motorPa = "Slå av motor";
+  String res = "";
   bool lys = false;
   bool motor = false;
 
-  Future<Post> post;
+  Future<Quote2> post;
 
-  JuletreSideState(Future<Post> post) {
-    this.post = post;
+  JuletreSideState() {
+
   }
 
 
@@ -22,12 +24,14 @@ class JuletreSideState extends State<JuletreSide> {
     setState(() {
       lys = !lys;
     });
+    this.post = hentQuote();
 
   }
   void toggleMotor() {
     setState(() {
       motor = !motor;
     });
+    this.post = hentQuote();
   }
 
   @override
@@ -44,17 +48,28 @@ class JuletreSideState extends State<JuletreSide> {
           children: <Widget>[
             Image.asset('images/juletre.png'),
             Container(
-              child: FutureBuilder<Post>(
+              child: FutureBuilder<Quote2>(
                 future: post,
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    return Text(snapshot.data.title);
+                    return Column(
+                      children: <Widget>[
+                        Text(snapshot.data.quote),
+                        Text(snapshot.data.author),
+                        Text(snapshot.data.cat),
+
+                      ],
+
+                    );
+
                   } else if (snapshot.hasError) {
                     return Text("${snapshot.error}");
                   }
-
+                  if(post != null)
                   // By default, show a loading spinner
-                  return CircularProgressIndicator();
+                    return CircularProgressIndicator();
+                  else
+                    return Text("trykk på en knapp");
                 },
               ),
             ),
@@ -70,6 +85,7 @@ class JuletreSideState extends State<JuletreSide> {
                       Icon(Icons.lightbulb_outline),
                       Text(
                         lys?lysPa:lysAv,
+                        textScaleFactor: 1.2,
                       ),
 
                     ],
@@ -83,6 +99,7 @@ class JuletreSideState extends State<JuletreSide> {
                       Icon(Icons.motorcycle),
                       Text(
                         motor?motorPa:motorAv,
+                        textScaleFactor: 1.2,
                       ),
 
                     ],

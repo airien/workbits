@@ -3,7 +3,7 @@ import 'package:juletre_app/post.dart';
 import 'juletrestate.dart';
 
 class JuletreSide extends StatefulWidget {
-  JuletreSide({Key key, this.title, this.post}) : super(key: key);
+  JuletreSide({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -14,9 +14,8 @@ class JuletreSide extends StatefulWidget {
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
 
-  final Future<Post> post;
   final String title;
 
   @override
-  JuletreSideState createState() => JuletreSideState(post);
+  JuletreSideState createState() => JuletreSideState();
 }
