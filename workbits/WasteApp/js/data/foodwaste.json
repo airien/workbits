@@ -1,0 +1,49 @@
+{
+    "texts":[{"type":"header", "value":"Hva er matsvinn?"},
+	{"type":"normal", "value":"Hvert år kastes en tredjedel av all maten som blir produsert. Dette utgjør hele 1,3 milliarder tonn mat, og en verdi på 750 milliarder amerikanske dollar. Matsvinn kan defineres som mat som kunne vært spist av mennesker, men som i stedet blir kastet eller brukt til andre formål, for eksempel energi eller dyrefor. Det er mange ulike årsaker til at dette skjer. I utviklingsland skjer dette primært i forbindelse med produksjon og transport av maten. I industriland skjer det meste av svinnet i forbindelse med forbrukeren. Dette er ikke en effektiv bruk av jordens ressurser, og ikke bærekraftig for miljøet."},
+	{"type":"image", "value":"foodwastepyramid"}, 
+    {"type":"normal", "value":"Forbrukerens rolle er viktig i bekjempelsen av matsvinn, både gjennom vaner i hjemmet og i butikken. Det er mye mat som kastes på grunn av at den ikke regnes som perfekt. Det kan være for eksempel en krokete gulrot eller varer med dårlig dato, f.eks. melk. Dersom forbrukere viser at dette er produkter de ønsker å kjøpe og bruke, bidrar det til at mindre mat blir kastet. I tillegg er det mye mat som kastes fordi man ikke vet hva man kan bruke den til. Man kjøper kanskje en fløte til å bake kake, og lar resten blir stående glemt i kjøleskapet. Eller man har middagsrester til overs, eller en yoghurt som er utgått på dato som man ikke vet om er spiselig eller ikke."},
+	{"type":"header", "value":"Matsvinn i Norge"},
+	{"type":"normal", "value":"Visste du at...61 % av matkastingen i Norge foregår blant forbrukerne? Og at en gjennomsnittsperson kaster 42,1 kg mat per år? Og at hver husholdning kaster i gjennomsnitt mat for 5800 kroner hvert år? Og at hver 8. handlepose havner i søpla? "},	
+	{"type":"image", "value":"whatwewaste"}, 
+	{"type":"normal", "value":"Mye av maten vi kaster kastes på grunn av best før-datoen, sannsynligvis mer enn vi tror. Best før-datoen er satt ut fra når produsenten kan garantere best mulig kvalitet. Siste forbruksdag antyder perioden produsenten kan garantere at produktet er trygt å spise (forutsatt at det er riktig oppbevart). For mat merket med Best før kan man altså bruke sansene for å avgjøre om man skal spise produktet eller ikke."},
+	
+	{"type":"header", "value":"Konsekvenser av matsvinn"},
+	
+	{"type":"normal", "value":"Å produsere mat krever landarealer, vann, energi og næringsstoffer. Når mat kastes er disse ressursene brukt forgjeves. I tillegg produseres store mengder CO2 fra matproduksjon og transport og oppbevaring av maten. å produsere mat som blir kastet fører til unødvendig bruk av ressurser og en unødvendig belastning på miljøet."},
+	{"type":"normal", "value":"Matindustrien er beregnet til å stå for 1/3 av alle klimagassutslipp. Dersom matsvinn var et land, ville det være det tredje mest forurensende landet i verden. Klimagassutslippene forbundet med matsvinn i Norge tilsvarer like mye som å av utslippene fra personbiler. I 2007 ble nesten 1,4 milliarder hektar med jord brukt til å produsere mat som aldri ble spist. Dette tilsvarer mer enn arealet av Canada og India til sammen. 78 % av arealet ble brukt til produksjon av kjøtt og melk."},
+	{"type":"normal", "value":"Intensivt jordbruk fører til at jorden blir mindre fruktbar, og det er en unødvendig belastning av jorden å bruke den til å dyrke mat som ikke blir spist.70 % av vannet som brukes i verden benyttes til produksjon av mat. I 2007 ble det sløst 250 km3 vann til produksjon av mat som aldri ble spist. Det er like mye vann som det finnes i Mjøsa, ganget med 5!"},
+	{"type":"header", "value":"Hva gjøres?"},
+	{"type":"normal", "value":"FNs bærekraftmål nr. 12.3 sier at matsvinnet i verden skal halveres innen 2030. Hvordan skal dette målet nås? Det finnes ulike initiativer, både i industrien og politikken. Her er noen"},
+	{"type":"point", "value":"Bunnpris har lansert Snål frukt og grønt til nedsatt pris i sine butikker"},
+	{"type":"link", "value":"https://bunnpris.no/snal-frukt-gront"},
+	{"type":"point", "value":"Too Good To Go er en app som gir deg mulighet til å kjøpe dagens rester fra et utvalg spisesteder og redde de fra å bli kastet."},
+	{"type":"link", "value":"http://toogoodtogo.no/"},
+	{"type":"point", "value":"Kutt matsvinn 2020 er et initiativ fra serveringsbransjen. Målet er at deltakerne skal redusere matsvinnet med 20 % frem mot 2020."},
+	{"type":"link", "value":"http://www.matindustrien.no/miljo/servering-samarbeider-matsvinn/"},
+	{"type":"point", "value":"Foodlist er en app som gir deg oversikt over hvor du kan finne rabatterte matvarer med nedsatt holdbarhet i butikkene."},
+	{"type":"link", "value":"http://foodlist.no/"},
+	{"type":"point", "value":"Holdbart.no selger overskuddsmat med opptil 90 % rabatt."},
+	{"type":"link", "value":"https://www.holdbart.no/display.aspx"},
+	{"type":"point", "value":"Norgesgruppen er i gang med en prøveordning hvor de i tillegg til best før-datoen legger til en ekstra dato kalt normalt brukbar til"},
+	{"type":"link", "value":"http://www.norgesgruppen.no/presse/nyhetsarkiv/aktuelt/se-lukt-smak---spis-norgesgruppen-tester-holdbarhetsmerking/"},
+	{"type":"normal", "value":"Hva kan du selv gjøre? Ta vare på maten du har. Hvordan? Se Tips og oppskrifter"},
+	{"type":"nav", "value":"recipe"},
+	{"type":"header", "value":"Visste du at..."},
+	{"type":"normal", "value":"Utgått på dato er den hyppigst oppgitte årsaken til at mat kastes? "},
+
+	{"type":"point", "value":"Matsvinnet i Norge ble redusert med 12 % fra 2011 til 2015?"},
+	{"type":"point", "value":"Mange av produktene som før var merket med Siste forbruksdag nå er merket med Best før?"},
+
+	{"type":"point", "value":"Jo nærmere Best før-datoen, jo mer smaker osten? Dette er fordi osten modnes under lagring "},
+	{"type":"link", "value":"http://www.tine.no/oppskrifter/sesong-og-tema/artikler/slik-behandler-du-ost"},
+	{"type":"point", "value":"Kokt ris og pasta skal ikke stå på benken i mer enn 4-6 timer? Står den lenger enn dette kan det føre til matforgiftning på grunn av bakterier som overlever koking."},
+	{"type":"link", "value":"http://forskning.no/mat-mat-og-helse/2012/01/helsefare-ved-feillagret-pasta-og-ris"},
+	{"type":"point", "value":"Egg gjerne holder i flere måneder over datoen?"},
+	{"type":"point", "value":"Vi har salmonellagaranti på egg i Norge? Det vil si at norske egg er garantert fri for Salmonella."},
+	{"type":"point", "value":"Kjøleskapstemperaturen skal helst være under 4°C? Hvilken temperatur har ditt kjøleskap?"},
+	{"type":"normal", "value":"Kilder for fakta: Aschemann-Witzel 2015; FAO; ForMat"}
+ ]
+}
+
+ 

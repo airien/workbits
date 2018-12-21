@@ -1,0 +1,80 @@
+{
+"start":"Mange er usikre på hva best før-datoen egentlig betyr. Kan produktet fortsatt spises etter denne datoen? Er det kvaliteten eller tryggheten til produktet som blir redusert? Test dine kunnskaper! Trykk Start for å ta quizen.",    
+    "questions":[{
+    "question" : "1) Hvis dato i dag er 17 Februar, hvilken av disse to produktene kan det fortsatt være greit å spise?",
+    "images":[],
+    "alternatives" : [
+        {"key":0, "type": "image", "answer":"quiz1pic1"},
+        {"key":1, "type": "image", "answer":"quiz1pic2"}
+        ],
+    "selected":null,
+    "answer" : "0"
+},
+{ "question" : "2) Hvilke av disse produktene kan merkes med best før-dato på pakken?",
+"images":["quiz2pic1","quiz2pic2","quiz2pic3","quiz2pic4"],
+    "alternatives" : [
+        {"key":0, "type": "text", "answer":"Kun yoghurt"},
+        {"key":1, "type": "text", "answer":"Kun egg"},
+        {"key":2, "type": "text", "answer":"Kun ost"},
+        {"key":3, "type": "text", "answer":"Kun melk"},
+        {"key":4, "type": "text", "answer":"Alle disse produktene kan merkes med best før-dato"}
+        ],
+    "selected":null,
+    "answer" : 4
+},
+{ "question" : "3) Hvilke sanser kan du bruke for å vurdere om et produkt fortsatt er greit å spise etter best før-dato?",
+"images":["quiz3pic1","quiz3pic2","quiz3pic3"],
+    "alternatives" : [
+        {"key":0, "type": "text", "answer":"Øyne: Se på melken før du kaster den"},
+        {"key":1, "type": "text", "answer":"Nesen: lukt på melken før du kaster den"},
+        {"key":2, "type": "text", "answer":"Tungen: Smak på melken før du kaster den"},
+        {"key":3, "type": "text", "answer":"Bruk alle sansene dine før du bestemmer om du skal kaste den"}
+        ],
+    "selected":null,
+    "answer" : 3
+},
+{ "question" : "4) Hva er riktig kjøleskaptemperatur?",
+"images":["quiz4"],
+    "alternatives" : [
+        {"key":0, "type": "text", "answer":"Litt over 4 °C"},
+        {"key":1, "type": "text", "answer":"Mellom 2 og 4 °C"},
+        {"key":2, "type": "text", "answer":"Under 2 °C"}
+        ],
+    "selected":null,
+    "answer" : 1
+},
+{ "question" : "5) Hvilken av disse påstandene er riktig?",
+"images":["quiz5pic1","quiz5pic2"],
+    "alternatives" : [
+        {"key":0, "type": "text", "answer":"Det er viktig å se på best før-datoen, fordi den gir informasjon om produktet er trygt å spise"},
+        {"key":1, "type": "text", "answer":"Siste forbruksdag gir kun en indikasjon på når kvaliteten til produktet kan garanteres"},
+        {"key":2, "type": "text", "answer":"Best før-datoen handler om kvalitet, mens siste forbruksdag handler om trygghet"}
+        ],
+    "selected":null,
+    "answer" : 2
+},
+{ "question" : "6) Hva er IKKE en god måte å bruke melk som du ikke kan, eller ønsker, å drikke akkurat nå?",
+"images":["quiz6"],
+    "alternatives" : [
+        {"key":0, "type": "text", "answer":"Fryse den"},
+        {"key":1, "type": "text", "answer":"Kaste den i søpla"},
+        {"key":2, "type": "text", "answer":"Bruke den i pasta"},
+        {"key":3, "type": "text", "answer":"Bruke den i vaffelrøre"}
+        ],
+    "selected":null,
+    "answer" : 1
+},
+{ "question" : "7) Noen forteller deg følgende historie: “Jeg hadde en kartong med melk i kjøleskapet, som jeg glemte å drikke før jeg dro på ferie. Da jeg kom tilbake fra ferie prøvde jeg å drikke melken, som da var 4 uker over best før-datoen, og den var helt fin! Tror du denne historien kunne vært sann?",
+"images":[],
+    "alternatives" : [
+        {"key":0, "type": "text", "answer":"Nei, det må være en spøk"},
+        {"key":1, "type": "text", "answer":"Det kan være sant"}
+        ],
+    "selected":null,
+    "answer" : 1
+}],
+"texts":[
+    {"low":0, "limit":2,"title":"", "text": "Du er en ‘Food student’! Du kan fortsatt lære en del om matsvinn og hvordan forebygge det"},
+    {"low":3, "limit": 4,"title":"",  "text":  "Du er en ‘Food saver’! Du er allerede god til å redde mat fra å bli avfall, men du kan fortsatt lære noen triks."},
+    {"low":5, "limit": 7,"title":"", "text": "Du er en ‘Super saver’! Du er fantastisk til å redde mat fra å bli avfall. Fortsett det gode arbeidet!"}]
+}
