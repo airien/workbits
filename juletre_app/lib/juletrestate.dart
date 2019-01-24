@@ -1,37 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:juletre_app/api.dart';
 import 'package:juletre_app/juletreside.dart';
-import 'package:juletre_app/quote.dart';
+import 'package:juletre_app/state.dart';
 
 class JuletreSideState extends State<JuletreSide> {
-  String lysAv = "Slå på lys";
-  String lysPa = "Slå av lys";
+  String lysAv = "Slå på blått lys";
+  String lysPa = "Slå av blått lys";
 
-  String motorAv = "Slå på motor";
-  String motorPa = "Slå av motor";
+
+  String lys2Av = "Slå på grønt lys";
+  String lys2Pa = "Slå av grønt lys";
+
   String res = "";
   bool lys = false;
-  bool motor = false;
+  bool lys2 = false;
 
-  Future<Quote2> post;
+  Future<LightState> post;
 
   JuletreSideState() {
-
+    post = hentState();
+    post.then((state) {
+      setState(() {
+        lys = state.blue == "On";
+        lys2 = state.green == "On";
+      });
+    });
   }
 
 
-  void toggleLys() {
-    setState(() {
-      lys = !lys;
+  void toggleLys1() {
+    post = blue();
+    post.then((state) {
+      setState(() {
+        lys = state.blue == "On";
+        lys2 = state.green == "On";
+      });
     });
-    this.post = hentQuote();
 
   }
-  void toggleMotor() {
-    setState(() {
-      motor = !motor;
+  void toggleLys2(){
+    post = green();
+    post.then((state) {
+      setState(() {
+        lys = state.blue == "On";
+        lys2 = state.green == "On";
+      });
     });
-    this.post = hentQuote();
   }
 
   @override
@@ -43,23 +57,23 @@ class JuletreSideState extends State<JuletreSide> {
       body: new Container(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Image.asset('images/juletre.png'),
-            Container(
-              child: FutureBuilder<Quote2>(
+            FutureBuilder<LightState>(
                 future: post,
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    return Column(
-                      children: <Widget>[
-                        Text(snapshot.data.quote),
-                        Text(snapshot.data.author),
-                        Text(snapshot.data.cat),
+                    return Container(
+                      padding: EdgeInsets.fromLTRB(10, 50, 10, 50),
+                        child:Column(
+                          children: <Widget>[
+                            Text("Grønn er: "+snapshot.data.green),
+                            Text("Blå er: "+snapshot.data.blue)
+                          ],
 
-                      ],
-
+                        )
                     );
 
                   } else if (snapshot.hasError) {
@@ -72,46 +86,45 @@ class JuletreSideState extends State<JuletreSide> {
                     return Text("trykk på en knapp");
                 },
               ),
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                FlatButton(
-                  textColor: Color.fromRGBO(0, 255, 0, 0.7),
-                  onPressed: toggleLys,
-                  child: ButtonBar(
-                    children: <Widget>[
-                      Icon(Icons.lightbulb_outline),
-                      Text(
-                        lys?lysPa:lysAv,
-                        textScaleFactor: 1.2,
-                      ),
+              new Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  RaisedButton(
+                    textColor: Color.fromRGBO(0, 0, 255, 0.7),
+                    color: Color.fromRGBO(250,250, 250, 20),
+                    onPressed: toggleLys1,
+                    child: Row(
+                      children: <Widget>[
+                        Icon(Icons.lightbulb_outline),
+                        Text(
+                          lys?lysPa:lysAv,
+                          textScaleFactor: 1.0,
+                        ),
 
-                    ],
+                      ],
+                    ),
                   ),
-                ),     FlatButton(
-                  onPressed: toggleMotor,
-                  textColor: Color.fromRGBO(255, 0, 0, 0.7),
-                  child: ButtonBar(
 
-                    children: <Widget>[
-                      Icon(Icons.motorcycle),
-                      Text(
-                        motor?motorPa:motorAv,
-                        textScaleFactor: 1.2,
-                      ),
+                  RaisedButton(
+                    onPressed: toggleLys2,
+                    textColor: Color.fromRGBO(0, 255, 0, 0.7),
+                    color: Color.fromRGBO(250,250, 250, 20),
+                    child: Row(
 
-                    ],
+                      children: <Widget>[
+                        Icon(Icons.lightbulb_outline),
+                        Text(
+                          lys2?lys2Pa:lys2Av,
+                          textScaleFactor: 1.0,
+                        ),
+
+                      ],
+                    ),
                   ),
-                ),
-
-              ],
-            )
-          ],
-
+                ]),
+              ])
         ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+      );
+
   }
 }

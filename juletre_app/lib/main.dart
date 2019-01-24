@@ -6,7 +6,7 @@ import 'juletreside.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  String title = "Juletre!";
+  String title = "Let there be light !";
 
   MyApp({Key key}) : super(key: key);
   // This widget is the root of your application.
